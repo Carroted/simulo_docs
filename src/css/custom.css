@@ -94,7 +94,7 @@ code {
 }
 
 .type.vec2 {
-  background-color: #CCCCCC;
+  background-color: #889eff;
 }
 
 .type.function {
@@ -131,6 +131,18 @@ code {
 
 .menu_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-Content-styles-module {
   padding: 2rem !important;
+}
+
+div[class^='sidebar']>nav {
+  padding: 2rem !important;
+}
+
+div[class^='sidebar'] {
+  background: linear-gradient(45deg, #271a2b00, #271a2bff);
+}
+
+aside.theme-doc-sidebar-container {
+  border-right: none;
 }
 
 .table-of-contents__left-border {

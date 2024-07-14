@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default function Type({ name }) {
-  let href = "/docs/api/intro";
+  let href = "/api/intro";
   if (name === 'vec2') {
-    href = '/docs/api/vec2';
+    href = '/api/vec2';
   }
   if (name === 'object') {
-    href = '/docs/api/simuloobject';
+    href = '/api/simuloobject';
   }
   let displayName = name;
   if (name === 'vec2') {

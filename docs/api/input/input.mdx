@@ -1,0 +1,115 @@
+---
+title: Input
+description: The Input global provides functions relating to user input in the Simulo scene.
+---
+
+# Input
+
+The `Input` global provides functions relating to user input in the Simulo scene.
+
+:::warning
+All of these APIs will change when multiplayer is added! But who knows when that will be Haha!
+:::
+
+## Functions
+
+:::note
+Make sure to use `Input:function()` and not `Input.function()`, or you'll get an error
+:::
+
+---
+
+### Input\:pointer_pos()
+
+Returns the position of the mouse pointer in the world as a <Type name="vec2" />.
+
+#### Example
+
+```lua
+local pos = Input:pointer_pos();
+```
+
+---
+
+### Input\:pointer_just_pressed()
+
+Returns whether the mouse left click was just pressed as a <Type name="bool" />.
+
+#### Example
+
+```lua
+if Input:pointer_just_pressed() then
+    -- do something
+end;
+```
+
+---
+
+### Input\:pointer_just_released()
+
+Returns whether the mouse left click was just released as a <Type name="bool" />.
+
+#### Example
+
+```lua
+if Input:pointer_just_released() then
+    -- do something
+end;
+```
+
+---
+
+### Input\:pointer_pressed()
+
+Returns whether the mouse left click is currently released as a <Type name="bool" />.
+
+#### Example
+
+```lua
+if Input:pointer_pressed() then
+    -- do something
+end;
+```
+
+---
+
+### Input\:key_just_pressed(...)
+
+Returns whether the given key was just pressed as a <Type name="bool" />. Currently only supports `"W"`, `"A"`, `"S"` and `"D"`.
+
+#### Example
+
+```lua
+if Input:key_just_pressed("W") then
+    -- do something
+end;
+```
+
+---
+
+### Input\:key_just_released(...)
+
+Returns whether the given key was just released as a <Type name="bool" />. Currently only supports `"W"`, `"A"`, `"S"` and `"D"`.
+
+#### Example
+
+```lua
+if Input:key_just_released("W") then
+    -- do something
+end;
+```
+
+---
+
+### Input\:key_pressed(...)
+
+Returns whether the given key is currently pressed as a <Type name="bool" />. Currently only supports `"W"`, `"A"`, `"S"` and `"D"`.
+
+#### Example
+
+```lua
+if Input:key_pressed("W") then
+    -- do something
+end;
+```
+

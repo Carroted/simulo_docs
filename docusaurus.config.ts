@@ -102,10 +102,12 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://docs.simulo.org',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
+
+  trailingSlash: true,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -129,17 +131,24 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: '/'
         },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/docs.png',
+    metadata: [
+      { name: 'keywords', content: 'simulo, dev, docs' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'theme-color', content: '#1d1121' }
+    ],
+
     navbar: {
       logo: {
         alt: 'Simulo Logo',
@@ -173,11 +182,11 @@ const config: Config = {
           items: [
             {
               label: 'API Docs',
-              to: '/docs/api/intro',
+              to: '/api/intro',
             },
             {
               label: 'Samples',
-              to: '/docs/samples/intro',
+              to: '/samples/intro',
             },
           ],
         },
@@ -206,6 +215,11 @@ const config: Config = {
       theme: ourTheme,
       additionalLanguages: ['lua'],
     },
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    }
   } satisfies Preset.ThemeConfig,
 };
 

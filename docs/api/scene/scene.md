@@ -1,5 +1,7 @@
 ---
 sidebar_position: 2
+title: Scene
+description: The Scene global provides fields and functions relating to the Simulo scene.
 ---
 
 # Scene
@@ -81,7 +83,7 @@ Scene:add_circle({
 
 Adds a new component to the scene. Takes a table as parameter, returns a <Type name="hash" />.
 
-For a detailed explanation, check out the [Components section of the API Docs](../components/).
+For a detailed explanation, check out the [Components section of the API Docs](/api/components/).
 
 #### Example
 

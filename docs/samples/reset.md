@@ -1,3 +1,8 @@
+---
+title: Resetting The Scene
+description: Sample of how to reset the Simulo scene in scripting
+---
+
 # Resetting The Scene
 
 The Simulo API currently has no built-in way to reset the scene to its default state. However, by using the following code, we can accomplish it anyway:

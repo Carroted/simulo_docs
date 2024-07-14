@@ -1,3 +1,8 @@
+---
+title: Components
+description: Components are scripts you place on objects in Simulo. They're very powerful and allow doing almost anything with scripting, even creating a platformer game in Simulo.
+---
+
 # Components
 
 Components are scripts you place on objects in Simulo. They're very powerful and allow doing almost anything with scripting, even creating a platformer game in Simulo.
@@ -56,4 +61,4 @@ This function is called when the object is about to be destroyed. When it is cal
 
 ## Examples
 
-For some examples, check out the [Components section of the Samples](/docs/samples/components).
+For some examples, check out the [Components section of the Samples](/category/components).

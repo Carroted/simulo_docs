@@ -1,5 +1,7 @@
 ---
 sidebar_position: 1
+title: Samples
+description: Various samples of scripts with the Simulo Scripting API
 ---
 
 # Samples
