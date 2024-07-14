@@ -1,0 +1,107 @@
+# Platformer
+
+Here's an example of a simple platformer parkour with components:
+
+```lua
+reset(); -- Add `reset` function from the samples so this works
+
+-- Add box for player
+
+local player = Scene:add_box({
+    name = "player",
+    position = vec2(2, -19.5),
+    size = vec2(0.5, 0.5),
+    is_static = false,
+    color = 0xa0a0ff,
+});
+
+print(player.guid);
+
+local hash = Scene:add_component({
+    name = "Player Component",
+    id = "@amytimed/test/player_component",
+    version = "0.2.0",
+    code = [[
+        local speed = 5;
+        local jump_force = 5;
+        local parkour_x = 10;
+        local parkour_y = -19;
+        local parkour_size_x = 0.9;
+        local parkour_gap = 5;
+        local parkour_aa_e = 0;
+
+        function on_start()
+            print("start!!");
+            spawn_parkour();
+        end;
+
+        function on_update()
+            local current_vel = self:get_linear_velocity();
+
+            local vel = vec2(0, current_vel.y);
+
+            if Input:key_pressed("D") then
+                vel.x = speed;
+            end;
+            if Input:key_pressed("A") then
+                vel.x = -speed;
+            end;
+            if Input:key_just_pressed("W") then
+                vel.y = jump_force;
+            end;
+
+            if (vel.x < 0 and current_vel.x > vel.x) or (vel.x > 0 and current_vel.x < vel.x) then
+                self:set_linear_velocity(vec2(vel.x, vel.y));
+            elseif vel.y > 0 then
+                self:set_linear_velocity(vec2(current_vel.x, vel.y));
+            end;
+
+            self:set_angle(0);
+
+            if self:get_position().x > parkour_x - 10 then
+                spawn_parkour();
+            end;
+        end;
+
+        function spawn_parkour()
+            for i=0,2 do
+                Scene:add_box({
+                    position = vec2(parkour_x, parkour_y),
+                    size = vec2(parkour_size_x, 0.2),
+                    color = 0xe5d3b9,
+                    is_static = true,
+                    --name = "Light"
+                });
+
+                if math.random(1, 5) == 4 then
+                    Scene:add_box({
+                        position = vec2(parkour_x + (parkour_size_x / 2), parkour_y + 1),
+                        size = vec2(0.1, 1.),
+                        color = 0xe5d3b9,
+                        is_static = true,
+                    });
+                end;
+
+                if math.random(1, 5) == 4 then
+                    Scene:add_box({
+                        position = vec2(parkour_x + (parkour_gap / 2), parkour_y + 6 + parkour_aa_e),
+                        size = vec2(0.1, 4.),
+                        color = 0xe5d3b9,
+                        is_static = true,
+                    });
+                end;
+
+                parkour_x += parkour_gap;
+                parkour_gap *= 1.001;
+                parkour_size_x /= 1.01;
+                parkour_aa_e += 0.005;
+                parkour_y += math.random(-0.5 - parkour_aa_e, 1.5 - parkour_aa_e);
+            end;
+        end;
+    ]]
+});
+
+player:add_component(hash);
+
+print(hash);
+```

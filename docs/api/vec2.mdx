@@ -1,0 +1,42 @@
+---
+sidebar_position: 4
+---
+
+# Vec2
+
+<Type name="vec2" /> is Simulo's built-in type for 2D vectors.
+
+## Constructor
+
+To create a <Type name="vec2" />, use the global `vec2(x, y)` function:
+
+```lua
+local vec = vec2(5, 5);
+```
+
+## Fields
+
+| Field | Description                                   | Type                 |
+| ----- | --------------------------------------------- | ---------------------- |
+| `x`   | The `x` component of the <Type name="vec2" /> | <Type name="number" /> |
+| `y`   | The `y` component of the <Type name="vec2" /> | <Type name="number" /> |
+
+## Arithmetic
+
+| Operator                                       | Description                                                                                   | Return               |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------- | -------------------- |
+| <Type name="vec2" /> + <Type name="vec2" />    | Returns a new <Type name="vec2" /> that is the sum of both                                    | <Type name="vec2" /> |
+| <Type name="vec2" /> − <Type name="vec2" />    | Returns the difference between both                                                           | <Type name="vec2" /> |
+| <Type name="vec2" /> \* <Type name="number" /> | Returns the <Type name="vec2" /> with each component multiplied by the <Type name="number" /> | <Type name="vec2" /> |
+| <Type name="vec2" /> / <Type name="number" />  | Returns the <Type name="vec2" /> with each component divided by the <Type name="number" />    | <Type name="vec2" /> |
+| −<Type name="vec2" />                          | Returns the negation of the <Type name="vec2" />                                              | <Type name="vec2" /> |
+
+## Functions
+
+:::note
+Make sure to use `vec:function()` and not `vec.function()`, or you'll get an error
+:::
+
+| Function       | Description                                    | Return                 |
+| -------------- | ---------------------------------------------- | ---------------------- |
+| `:magnitude()` | Returns the length of the <Type name="vec2" /> | <Type name="number" /> |

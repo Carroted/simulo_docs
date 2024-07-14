@@ -1,0 +1,159 @@
+# SimuloObject
+
+All objects in a Simulo scene, such as boxes, circles, polygons, etc, are known to the API as <Type name="object" />s.
+
+A <Type name="object" /> reference is typically obtained by:
+- Getting it with `Scene:get_object_by_guid`
+- Getting it with `Scene:get_all_objects`
+- Using `self` in a [Component](../components/) script
+
+## Fields
+
+| Field     | Description                                                | Note | Type                  |
+| --------- | ---------------------------------------------------------- | ---  | --------------------- |
+| `guid`    | The <Type name="guid" /> of the object     |      |<Type name="number" /> |
+| `color`   | The color of the object, like `0xff0000` for red              |      |<Type name="number" /> |
+| `name`   | The name of the object              |      |<Type name="string" /> |
+
+## Functions
+
+:::note
+Make sure to use `object:function()` and not `object.function()`, or you'll get an error
+:::
+
+---
+
+### \:destroy()
+
+Destroys the object. This will call any `on_destroy` functions of components on the object.
+
+#### Example
+
+```lua
+object:destroy();
+```
+
+---
+
+### \:get_position()
+
+Returns the position of the object as a <Type name="vec2" />.
+
+#### Example
+
+```lua
+local pos = object:get_position();
+```
+
+---
+
+### \:set_position(...)
+
+Sets the position of the object to a <Type name="vec2" />.
+
+#### Example
+
+```lua
+object:set_position(vec2(1, 1));
+```
+
+---
+
+### \:get_angle()
+
+Gets the angle of the object as a <Type name="number" />. Measured in radians.
+
+#### Example
+
+```lua
+local angle = object:get_angle();
+```
+
+---
+
+### \:set_angle(...)
+
+Sets the angle of the object to a <Type name="number" />. Measured in radians.
+
+#### Example
+
+```lua
+object:set_angle(math.pi); -- 180 degrees is pi radians
+```
+
+---
+
+### \:get_linear_velocity()
+
+Returns the linear velocity of the object as a <Type name="vec2" />. Measured in meters per second.
+
+#### Example
+
+```lua
+local linvel = object:get_linear_velocity();
+```
+
+---
+
+### \:set_linear_velocity(...)
+
+Sets the linear velocity of the object to a <Type name="vec2" />. Measured in meters per second.
+
+Note that this will not behave realistically. You may want to use [`:apply_force_to_center`](#apply_force_to_center) instead.
+
+#### Example
+
+```lua
+object:set_linear_velocity(vec2(1, 1));
+```
+
+---
+
+### \:get_angular_velocity()
+
+Gets the angular velocity of the object as a <Type name="number" />. Measured in radians per second.
+
+#### Example
+
+```lua
+local angle = object:get_angle();
+```
+
+---
+
+### \:set_angular_velocity(...)
+
+Sets the angular velocity of the object to a <Type name="number" />. Measured in radians per second.
+
+#### Example
+
+```lua
+object:set_angular_velocity(0.174533); -- 10 degrees per second
+```
+
+---
+
+### \:apply_force_to_center(...)
+
+Applies a world force <Type name="vec2" /> to the center of the object. Measured in newtons (N).
+
+#### Example
+
+```lua
+object:apply_force_to_center(vec2(0, 500));
+```
+
+---
+
+### \:add_component(...)
+
+Adds a component of a <Type name="hash" /> to the object.
+
+#### Example
+
+```lua
+local hash = Scene:add_component(...); -- see component docs
+
+object:add_component(hash);
+```
+

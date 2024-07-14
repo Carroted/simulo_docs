@@ -1,0 +1,40 @@
+# Multi-File
+
+Instead of writing the component code inline in our Script Box script, we can use the `temp_load_string` global:
+
+```lua title="Script Box script"
+reset(); -- Add `reset` function from the samples so this works
+
+local box = Scene:add_box({
+    position = vec2(2, -19.5),
+    size = vec2(0.5, 0.5),
+    is_static = false,
+    color = 0xa0a0ff,
+});
+
+print(box.guid);
+
+local hash = Scene:add_component({
+    name = "Multi-File Example",
+    id = "@amytimed/test/multifile_example",
+    version = "0.2.0",
+    code = temp_load_string('/some/path/to/component.lua')
+});
+
+box:add_component(hash);
+```
+
+And then, in `component.lua` (which we defined a path to earlier):
+```lua title="component.lua"
+function on_start()
+    -- random rgb color
+    local r = math.random(0x40, 0xff);
+    local g = math.random(0x40, 0xff);
+    local b = math.random(0x40, 0xff);
+
+    -- put it together to form single color value, like 0xRRGGBB
+    self.color = r * 0x10000 + g * 0x100 + b;
+end;
+```
+
+Now, if we paste the first script into the Script Box and run it, it'll load the script defined in component.lua. Each time we press run, it'll reset the scene and create a box which sets its color to a random one.

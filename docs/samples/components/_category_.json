@@ -1,0 +1,13 @@
+{
+    "position": 2.5,
+    "label": "Components",
+    "collapsible": true,
+    "collapsed": false,
+    "link": {
+        "type": "generated-index",
+        "title": "Components"
+    },
+    "customProps": {
+        "description": "Examples of component scripts"
+    }
+}
