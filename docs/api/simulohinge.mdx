@@ -1,0 +1,124 @@
+---
+title: SimuloHinge
+description: API documentation for SimuloHinges
+---
+
+# SimuloHinge
+
+A hinge joint, also known as a pin or revolute joint, is uhh I'm not quite sure how to describe this yet. Ah well, enjoy the API docs below.
+
+A <Type name="hinge" /> reference is typically obtained by calling [`Scene:add_hinge_at_world_point`](/api/scene/#sceneadd_hinge_at_world_point).
+
+## Functions
+
+:::note
+Make sure to use `hinge:function()` and not `hinge.function()`, or you'll get an error
+:::
+
+---
+
+### \:destroy()
+
+Destroys the hinge.
+
+#### Example
+
+```lua
+hinge:destroy();
+```
+
+---
+
+### \:get_angle()
+
+Returns the hinge current angle in radians as a <Type name="number" />, relative to the reference angle.
+
+#### Example
+
+```lua
+local angle = hinge:get_angle();
+```
+
+---
+
+### \:get_motor_enabled()
+
+Gets whether or not the hinge's motor is enabled as a <Type name="boolean" />.
+
+#### Example
+
+```lua
+local motor_enabled = hinge:get_motor_enabled();
+```
+
+---
+
+### \:set_motor_enabled(...)
+
+Sets whether or not the hinge's motor is enabled to a <Type name="boolean" />.
+
+#### Example
+
+```lua
+hinge:set_motor_enabled(true);
+```
+
+---
+
+### \:get_motor_speed()
+
+Gets the speed of the hinge's motor in radians per second as a <Type name="number" />.
+
+#### Example
+
+```lua
+local speed = hinge:get_motor_speed();
+```
+
+---
+
+### \:set_motor_speed(...)
+
+Sets the speed of the hinge's motor in radians per second to a <Type name="number" />.
+
+#### Example
+
+```lua
+hinge:set_motor_speed(0.5);
+```
+
+---
+
+### \:get_max_motor_torque()
+
+Gets the max torque of the hinge's motor in newton-meters as a <Type name="number" />.
+
+#### Example
+
+```lua
+local max_torque = hinge:get_max_motor_torque();
+```
+
+---
+
+### \:set_max_motor_torque(...)
+
+Sets the max torque of the hinge's motor in newton-meters to a <Type name="number" />.
+
+#### Example
+
+```lua
+hinge:set_max_motor_torque(10);
+```
+
+---
+
+### \:get_motor_current_torque()
+
+Gets the current torque of the hinge's motor in newton-meters as a <Type name="number" />.
+
+#### Example
+
+```lua
+local current_torque = hinge:get_motor_current_torque();
+```

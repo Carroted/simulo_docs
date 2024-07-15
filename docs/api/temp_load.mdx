@@ -1,0 +1,62 @@
+# temp_load APIs
+
+Simulo's `temp_load` global APIs are some functions that will be removed in the public version (and replaced by proper ways to load things).
+
+However, at the moment they are the only way to load images and text files into Simulo. Here's how they work:
+
+---
+
+## temp_load_string(path)
+
+This function loads a text file of an absolute path and returns its content as a <Type name="string" />.
+
+Mainly used for [Components](../components). See [this sample](/samples/components/multifile/) to see an example of that.
+
+### Example
+
+```lua
+local text = temp_load_string("/home/joe/Documents/aaa.txt");
+```
+
+---
+
+## temp_load_image(path)
+
+This function is very similar to [`temp_load_string`](#temp_load_stringpath), but instead of returning a <Type name="string" />, it returns a <Type name="SimuloImage" />.
+
+<Type name="SimuloImage" /> has 2 fields: `width` and `height`, both read-only <Type name="number" /> fields. It also has one function: `:get_pixel(vec2)`, which returns a table that has `r`, `g`, `b` and `a` numbers from `0`-`255`.
+
+### Example
+
+```lua
+local image = temp_load_image("/home/joe/Pictures/simulon.png");
+
+-- Get image dimensions
+local width = image.width;
+local height = image.height;
+
+-- Define helper function to convert RGB to hex color
+function rgb_to_color(r, g, b)
+    return r * 0x10000 + g * 0x100 + b;
+end
+
+-- Iterate over each pixel
+for y = 0, height - 1 do
+    for x = 0, width - 1 do
+        -- Get the pixel color
+        local pixel = image:get_pixel(vec2(x, y));
+
+        if pixel.a > 127 then
+            local color = rgb_to_color(pixel.r, pixel.g, pixel.b);
+        
+            -- Create the box with the specified properties
+            Scene:add_box({
+                position = vec2(x, -y) + offset,
+                size = vec2(0.5, 0.5),
+                color = color,
+                is_static = false
+            });
+        end;
+    end;
+end;
+```

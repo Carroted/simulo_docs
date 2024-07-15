@@ -221,6 +221,41 @@ end;
 
 ---
 
+### Scene\:add_hinge_at_world_point(...)
+
+Adds a hinge at a world point, connecting two <Type name="object" />s. Returns a <Type name="hinge" />.
+
+#### Example
+
+```lua
+local object_a = Scene:get_object_by_guid(1);
+local object_b = Scene:get_object_by_guid(2);
+
+local hinge = Scene:add_hinge_at_world_point({
+    point = vec2(0, 0),
+    object_a = object_a,
+    object_b = object_b,
+    motor_enabled = false,
+    motor_speed = 1, -- radians per second
+    max_motor_torque = 10, -- maximum torque for the motor, in newton-meters
+});
+
+hinge:destroy();
+```
+
+#### Table Fields
+
+| Table Field                               | Description                                        | Note     |
+| ----------------------------------------- | -------------------------------------------------- | -------- |
+| `point` <Type name="vec2" />              | World point for the hinge                          |          |
+| `object_a` <Type name="object" />         | First object for the hinge                         |          |
+| `object_b` <Type name="object" />         | Second object for the hinge                        |          |
+| `motor_enabled` <Type name="bool" />      | Should the hinge have a motor? Defaults to `false` | Optional |
+| `motor_speed` <Type name="number" />      | Radians per second                                 | Optional |
+| `max_motor_torque` <Type name="number" /> | Maximum torque for the motor, in newton-meters     | Optional |
+
+---
+
 ### Scene\:explode(...)
 
 Applies an impulse in the scene at a given point to all objects in its radius.

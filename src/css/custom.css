@@ -159,3 +159,8 @@ aside.theme-doc-sidebar-container {
 .markdown>h4 {
   margin-bottom: 1.5rem;
 }
+
+.markdown img {
+  border-radius: 0.4rem;
+  width: 100%;
+}
