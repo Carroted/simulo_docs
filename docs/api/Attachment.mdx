@@ -1,0 +1,292 @@
+# Attachment
+
+Attachments are a feature of Simulo which allow making visible things you can attach onto objects, or the background.
+
+For example, if you use the Hinge Tool, you'll see a visible hinge on the object, which you can select, delete, or right-click. You can even tweak its settings, like enabling a motor. That's an **Attachment**. You can also see these in the Point Light, Bolt, etc.
+
+All the built-in attachments are made entirely in Lua! You can make your own, just like the built-in tools do. You'll start with [`Scene:add_attachment`](/api/Scene). It wants:
+- A parent (this is what it's attached to, either an object or `nil` for the background)
+- Any images you want on it
+- Lights on it
+- Texts on it
+- A "base component". This is just a Simulo [Component](/api/Component), but it isn't removable, and in the right-click menu, it will be shown *before* the Components list.
+  - Instead of specifying a hash, like in `object:add_component`, you put a table. See the docs on [`Scene:add_attachment`](/api/Scene)
+
+You can see an example in `./packages/core/lib/hinge.lua`. If you're not sure how to get there, follow the instructions at the beginning of the [`core`](/api/core) page, it explains how to open your Simulo folder.
+
+> Attachments rule the world. They are human
+
+## Fields
+
+---
+
+### .id
+
+Identifier for the attachment. Is a <Type name="number" />.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:get_position()
+
+Gets the world position of the attachment as a <Type name="vec2" />.
+
+#### Example
+
+```lua
+local pos = attachment:get_position();
+```
+
+---
+
+### \:get_angle()
+
+Gets the world angle of the attachment in radians as a <Type name="number" />.
+
+#### Example
+
+```lua
+local angle = attachment:get_angle();
+```
+
+---
+
+### \:get_local_position()
+
+Gets the local position of the attachment as a <Type name="vec2" />.
+
+#### Example
+
+```lua
+local pos = attachment:get_local_position();
+```
+
+---
+
+### \:get_local_angle()
+
+Gets the local angle of the attachment in radians as a <Type name="number" />.
+
+#### Example
+
+```lua
+local angle = attachment:get_local_angle();
+```
+
+---
+
+### \:set_local_position()
+
+Sets the local position of the attachment to a <Type name="vec2" />.
+
+#### Example
+
+```lua
+attachment:set_local_position(vec2(0, 0));
+```
+
+---
+
+### \:set_local_angle()
+
+Sets the local angle of the attachment in radians to a <Type name="number" />.
+
+#### Example
+
+```lua
+attachment:set_local_angle(0);
+```
+
+---
+
+### \:get_up_direction()
+
+Gets the up direction of the attachment as a <Type name="vec2" />.
+
+#### Example
+
+```lua
+local up = attachment:get_up_direction();
+```
+
+---
+
+### \:get_parent()
+
+Returns object the attachment is attached to, or nil if none
+
+---
+
+### \:set_parent()
+
+Sets object the attachment is attached to, or nil for none
+
+---
+
+### \:get_use_world_angle()
+
+Gets whether or not the attachment has its angle be relative to the world instead of rotating with parent
+
+---
+
+### \:set_use_world_angle()
+
+Sets whether or not the attachment has its angle be relative to the world instead of rotating with parent
+
+---
+
+### \:get_images()
+
+Gets full list of images on the attachment
+
+---
+
+### \:set_images()
+
+Sets the full list of images on the attachment
+
+---
+
+### \:get_texts()
+
+Gets full list of texts on the attachment
+
+---
+
+### \:set_texts()
+
+Sets the full list of texts on the attachment
+
+---
+
+### \:get_lights()
+
+Gets full list of lights on the attachment
+
+---
+
+### \:set_lights()
+
+Sets the full list of lights on the attachment
+
+---
+
+### \:get_name()
+
+Gets name of the attachment
+
+---
+
+### \:set_name()
+
+Sets name of the attachment
+
+---
+
+### \:get_z_index()
+
+Gets the Z index of the attachment as a <Type name="number" />.
+
+#### Example
+
+```lua
+local z_index = self:get_z_index(); -- if running in attachment component
+```
+
+---
+
+### \:get_right_direction()
+
+Gets the right direction of the attachment as a <Type name="vec2" />.
+
+#### Example
+
+```lua
+local up = attachment:get_right_direction();
+```
+
+---
+
+### \:get_local_point()
+
+Get local point from a world one
+
+---
+
+### \:get_world_point()
+
+Get world point from a local one
+
+---
+
+### \:is_destroyed()
+
+Well? Is it?
+
+---
+
+### \:destroy()
+
+Complete permanent annihilation, for free
+
+---
+
+### \:get_components()
+
+Gets a list of all the components attached to the attachment.
+
+Doesn't include the base component; like on a hinge attachment we have the Hinge component (base attachment component) and we can have some other ones, we only return the other ones.
+
+---
+
+### \:get_property()
+
+Gets a property of the attachment
+
+---
+
+### \:get_properties()
+
+Gets all properties of the attachment
+
+---
+
+### \:set_property()
+
+Sets a property of the attachment. It'll send_event with id "property_changed" and data being the property id.
+
+---
+
+### \:add_component()
+
+Adds a component to the attachment. It will not be started immediately, but rather remain "sleeping" until the next step when the scene isn't paused. This is so we edit component values in right-click menus before the component is started.
+
+#### Example
+```lua
+local component = self:add_component({ hash = "<Some hash>" });
+
+local component = self:add_component({
+    hash = "<Some hash>",
+    saved_data = {
+        some_value = 10,
+    },
+});
+```
+
+---
+
+### \:send_event()
+
+Sends an event to the attachment's base component, and all components attached to the attachment.
+
+---
+
+### \:get_type()
+
+Returns `"attachment"`.
+

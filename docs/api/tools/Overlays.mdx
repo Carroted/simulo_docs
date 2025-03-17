@@ -1,0 +1,25 @@
+# Overlays
+
+In tools, we have an `Overlays` global. It only has an `:add` function, with no arguments.
+
+Overlays allow tools to draw previews, like the box tool shows a translucent box while you're drawing it. The drag tool also uses overlays for its drag line.
+
+In multiplayer, Simulo takes care of only sending overlay updates 32 times per second, so things don't start lagging by sending too much.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:add()
+
+Add a new overlay. Run this directly in tool code, not in `RemoteScene:run` code. It returns a [`LocalOverlay`](/api/tools/LocalOverlay).
+
+#### Example
+```lua
+local overlay = Overlays:add();
+```
+

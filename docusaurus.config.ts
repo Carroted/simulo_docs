@@ -161,12 +161,12 @@ const config: Config = {
           position: 'left',
           label: 'API Docs',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'samplesSidebar',
-          position: 'left',
-          label: 'Samples',
-        },
+        //{
+        //  type: 'docSidebar',
+        //  sidebarId: 'samplesSidebar',
+        //  position: 'left',
+        //  label: 'Samples',
+        //},
         {
           href: 'https://github.com/Carroted/simulo_docs',
           label: 'Docs Source',
@@ -184,10 +184,10 @@ const config: Config = {
               label: 'API Docs',
               to: '/api/intro',
             },
-            {
-              label: 'Samples',
-              to: '/samples/intro',
-            },
+            //{
+            //  label: 'Samples',
+            //  to: '/samples/intro',
+            //},
           ],
         },
         {

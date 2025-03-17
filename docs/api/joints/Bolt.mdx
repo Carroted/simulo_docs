@@ -1,0 +1,62 @@
+# Bolt
+
+A bolt keeps 2 objects together, and prevents all relative movement or rotation between them. If you instead want a wobbly connection, use [Fixed Joints](/api/joints/FixedJoint).
+
+You can add these with `Scene`'s `add_bolt`, but you are recommended to instead use the [`core` `bolt`](/api/core) function.
+
+If you use `add_bolt`, you'll connect objects, but without a visible bolt attachment the user can remove. For example, the built-in Brush Tool creates brush strokes made of many capsule objects. If you select the result, you won't see any bolts, even invisible ones. Conversely, if you select a Simulon, you'll see some invisible attachments for its spring, bolt, and hinge.
+
+So, if you want to add a visible bolt the user can remove (even if you want it to be invisible), use `core`'s `bolt`. Otherwise, you can use `add_bolt`.
+
+The below functions concern returned bolt joints from `add_bolt`, not `core`'s `bolt`.
+
+## Fields
+
+---
+
+### .id
+
+Identifier for the bolt. Is a <Type name="number" />.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:destroy()
+
+Destroys the bolt.
+
+---
+
+### \:is_destroyed()
+
+Returns whether or not the bolt still exists.
+
+---
+
+### \:get_object_a()
+
+Gets the first object the bolt is attached to. Can be <Type name="nil" /> if the bolt is connected to the world on that end.
+
+---
+
+### \:get_object_b()
+
+Gets the second object the bolt is attached to. Can be <Type name="nil" /> if the bolt is connected to the world on that end.
+
+---
+
+### \:get_reference_angle()
+
+Difference in angle between the two
+
+---
+
+### \:get_type()
+
+Returns "bolt". Mainly used after `object:get_joints()` to determine what type of joint it is.
+

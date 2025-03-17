@@ -1,0 +1,24 @@
+---
+title: Joints
+description: Simulo has springs, hinges, bolts and fixed joints.
+---
+
+# Joints
+
+We have 4 types of joints:
+
+## Bolt
+
+These lock all movement between two objects. You'd usually add them with [`core`'s bolt function](/api/core).
+
+## Hinge
+
+These allow rotation between 2 objects, but restrict movement between the joint anchors. You'd usually add them with [`core`'s hinge function](/api/core).
+
+## Fixed Joint
+
+These try to stop movement between two objects, but they do it with a force. The end result is a wobbly connection between the objects. Unlike `bolt` and `hinge`, there is currently no `core` function to add these. You need to use `Scene:add_fixed_joint` for now, which gives you full direct control over the joint.
+
+## Spring
+
+These pull or push objects to have the spring points be at a specified distance from eachother. Unlike `bolt` and `hinge`, there is currently no `core` function to add these. You need to use `Scene:add_spring` for now, which gives you full direct control over the joint.

@@ -1,0 +1,90 @@
+# Spring
+
+A spring is a joint between 2 objects.
+
+## Fields
+
+---
+
+### .id
+
+Identifier for the spring. Is a <Type name="number" />.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:destroy()
+
+Destroys the spring.
+
+---
+
+### \:is_destroyed()
+
+Returns whether or not the spring still exists.
+
+---
+
+### \:get_local_anchor_a()
+
+Gets the anchor of the spring on the first object as a <Type name="vec2" />.
+
+---
+
+### \:get_local_anchor_b()
+
+Gets the anchor of the spring on the second object as a <Type name="vec2" />.
+
+---
+
+### \:set_local_anchor_a()
+
+Moves the anchor of the spring on the first object to a <Type name="vec2" />. Note that this currently only works if the object_a is nil.
+
+---
+
+### \:set_local_anchor_b()
+
+Moves the anchor of the spring on the second object to a <Type name="vec2" />. Note that this currently only works if the object_a is nil.
+
+---
+
+### \:get_world_anchor_a()
+
+Gets where the first anchor of the spring is in the world as a <Type name="vec2" />.
+
+---
+
+### \:get_world_anchor_b()
+
+Gets where the second anchor of the spring is in the world as a <Type name="vec2" />.
+
+---
+
+### \:get_object_a()
+
+Gets the first object the spring is attached to. Can be <Type name="nil" /> if the spring is connected to the world on that end.
+
+---
+
+### \:get_object_b()
+
+Gets the second object the spring is attached to. Can be <Type name="nil" /> if the spring is connected to the world on that end.
+
+---
+
+### \:get_collide_connected()
+
+Gets whether or not the object A will collide with object B
+
+---
+
+### \:get_type()
+
+Returns "spring". Mainly used after `object:get_joints()` to determine what type of joint it is.
+

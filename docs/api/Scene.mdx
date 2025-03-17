@@ -1,0 +1,727 @@
+# Scene
+
+The `Scene` global provides fields and functions relating to the Simulo scene.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:get_physics_name()
+
+Gets the name of the current physics engine, such as "Box2D" or "Rapier".
+
+#### Example
+
+```lua
+print(Scene:get_physics_name());
+```
+
+---
+
+### \:get_physics_version()
+
+Gets the version of the current physics engine, such as "3.1.0".
+
+#### Example
+
+```lua
+print(Scene:get_physics_version());
+```
+
+---
+
+### \:add_attachment()
+
+Adds a new attachment to the scene. They can either be attached to objects or to the background.
+
+#### Example
+
+```lua
+Scene:add_attachment({
+    parent = nil, -- attached to background / scene
+    local_position = vec2(0, 1), -- usually relative to object, but in this case is world position since on background
+    local_angle = 0.1,
+    -- optionally, we can add images (you don't need images field)
+    images = {
+        {
+            -- We only need the texture, every other field in `images` is optional and has the defaults you'd expect.
+            texture = require('core/assets/textures/point_light.png'),
+            
+            color = 0xffa0a0,
+            offset = vec2(0.5, 0.5),
+            angle = 0.1,
+            flip_x = false,
+            flip_y = true,
+            filtering = "linear", -- change to "nearest" for pixel art, otherwise it'll be blurry
+            scale = vec2(1.1, 1.1),
+        },
+    },
+    -- we can also optionally add lights
+    lights = {
+        {
+            -- These don't have defaults
+            intensity = 1,
+            radius = 0.5,
+            color = 0xffffff,
+
+            -- But these do:
+            falloff = 0.3,
+            offset = vec2(0.5, 0.5),
+        },
+    },
+    -- optional text too
+    texts = {
+        {
+            -- We need at least content if we want text
+            content = "Hii omg",
+
+            -- But the rest have defaults
+            color = 0xffa0a0,
+            offset = vec2(0.5, 0.5),
+            angle = 0.4,
+            font_size = 1,
+            font_resolution = 20,
+            
+            -- can't set font yet! sorry
+        },
+    },
+    use_world_angle = false, -- this isn't finished and is somewhat broken (you can still try it) but it makes local angle use world instead of relative to parent
+
+    -- everything has defaults fr
+
+    -- other than this. to know how use that, look at `add_component_def` docs, on this same page
+    component = {
+        name = "Attachment type name, like Hinge, just, the name of your thing",
+        version = "0.1.0",
+        id = "@you/package/the_the",
+        properties = {
+            something = {
+                name = "Something idk",
+                input_type = "slider",
+                default_value = 100,
+                min_value = 0,
+                max_value = 200,
+            },
+        },
+    },
+    -- the attachment component is a special type of component
+    -- where it is part of attachment itself and cant be removed
+    -- and in UI it shows up Above components list
+});
+```
+
+---
+
+### \:add_spring()
+
+Adds a new spring to the scene. It can be between two objects, or between an object and the background.
+
+#### Example
+
+```lua
+Scene:add_spring({
+    object_a = box,
+    object_b = nil, -- one end on background
+    rest_length = 5,
+    stiffness = 10,
+    damping = 0.3,
+    local_anchor_b = vec2(0, 0.5), -- since object B is background, this is world space
+    -- we could also set local_anchor_a
+    collide_connected = false, -- defaults to `true` on springs
+    attachment = attachment, -- attachment to attach spring to
+});
+```
+
+---
+
+### \:add_hinge()
+
+Adds a new hinge to the scene. It can be between two objects, or between an object and the background.
+
+You should typically use the `core` `hinge` function instead, since if you use `Scene:add_hinge`, there won't be a visible bolt the user can remove. On the other hand, `core`'s `hinge` adds same thing as the hinge tool. You can even make it invisible if you want.
+
+#### Example
+
+```lua
+Scene:add_hinge({
+    object_a = box,
+    object_b = nil, -- one end on background
+    motor_enabled = true,
+    motor_speed = 0.3,
+    max_motor_torque = 10,
+    local_anchor_b = vec2(0, 0.5), -- since object B is background, this is world space
+    -- we could also set local_anchor_a and collide_connected
+    attachment = attachment, -- attachment to attach hinge to
+});
+```
+
+---
+
+### \:reset()
+
+Resets the scene to the default state, adding a ground and all that
+
+---
+
+### \:clear()
+
+Clears the scene, removing all objects and attachments, but keeping the background color and ambient light etc
+
+---
+
+### \:add_bolt()
+
+Adds a new bolt to the scene. It can be between two objects, or between an object and the background.
+
+You should typically use the `core` `bolt` function instead, since if you use `Scene:add_bolt`, there won't be a visible bolt the user can remove. On the other hand, `core`'s `bolt` adds same thing as the bolt tool. You can even make it invisible if you want.
+
+#### Example
+
+```lua
+Scene:add_bolt({
+    object_a = box,
+    object_b = nil, -- one end on background
+    local_anchor_a = vec2(0.5, 0.5),
+    local_anchor_b = vec2(1, 0), -- since object B is background, this is world space
+    reference_angle = 0.1, -- what difference in angle should there be between the two after bolt
+    attachment = attachment, -- attachment to attach bolt to
+});
+```
+
+---
+
+### \:add_fixed_joint()
+
+Adds a new fixed joint to the scene. It can be between two objects, or between an object and the background.
+
+#### Example
+
+```lua
+Scene:add_fixed_joint({
+    object_a = box,
+    object_b = nil, -- one end on background
+    local_anchor_b = vec2(0, 0.5), -- since object B is background, this is world space
+    -- we could also set local_anchor_a and collide_connected
+    attachment = attachment, -- attachment to attach fixed joint to
+});
+```
+
+---
+
+### \:add_audio()
+
+Adds an audio player to the scene. Wow!
+
+#### Example
+
+```lua
+Scene:add_audio({
+    position = vec2(0, 0),
+    asset = "path/to/audio.ogg",
+    -- we can also set pitch and volume but they default to 1
+    -- we can also omit position since it defaults to 0,0
+});
+```
+
+---
+
+### \:add_box()
+
+Adds a new object to the scene with a rectangle shape.
+
+#### Example
+
+```lua
+Scene:add_box({
+    position = vec2(0, 0),
+    size = vec2(1, 1), -- meters
+    body_type = BodyType.Static, -- doesnt move
+    color = Color:rgb(1, 0.1, 0.1), -- red
+});
+```
+
+---
+
+### \:add_circle()
+
+Adds a new object to the scene with a circle shape.
+
+#### Example
+
+```lua
+Scene:add_circle({
+    position = vec2(0, 0),
+    radius = 1, -- meters
+    body_type = BodyType.Static, -- doesnt move
+    color = Color:rgb(1, 0.1, 0.1), -- red
+});
+```
+
+---
+
+### \:add_polygon()
+
+Adds a new object to the scene with a polygon shape.
+
+#### Example
+
+```lua
+Scene:add_polygon({
+    position = vec2(0, 0),
+    points = {
+        vec2(0, 0),
+        vec2(1, 0),
+        vec2(0, 1),
+    },
+});
+```
+
+---
+
+### \:add_capsule()
+
+Adds a new object to the scene with a capsule shape.
+
+#### Example
+
+```lua
+Scene:add_capsule({
+    position = vec2(0, 0),
+    radius = 1, -- meters
+    local_point_a = vec2(0, 0.5),
+    local_point_b = vec2(0, -0.5),
+    body_type = BodyType.Static, -- doesnt move
+    color = Color:rgb(1, 0.1, 0.1), -- red
+});
+```
+
+---
+
+### \:push_undo()
+
+Add an entry to the undo history of the scene. Tools should do this *after* any changes to the scene.
+
+#### Example
+
+```lua
+-- Wow my tool just finished destroying thousands of creations.
+-- Now let us save this glorious achievement for the future generations.
+
+Scene:push_undo();
+
+-- Now when they CTRL+Z itll that.
+```
+
+---
+
+### \:get_player()
+
+Gets a [player](/api/Player) by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local player = Scene:get_player(0); -- ID 0 is always the host. We can also use Scene:get_host()
+```
+
+---
+
+### \:get_host()
+
+Gets the player who is hosting the scene
+
+#### Example
+```lua
+local player = Scene:get_host();
+```
+
+---
+
+### \:get_object()
+
+Gets an object by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local object = Scene:get_object(0);
+```
+
+---
+
+### \:get_spring()
+
+Gets a spring by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local spring = Scene:get_spring(0);
+```
+
+---
+
+### \:get_hinge()
+
+Gets a hinge by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local hinge = Scene:get_hinge(0);
+```
+
+---
+
+### \:get_bolt()
+
+Gets a bolt by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local bolt = Scene:get_bolt(0);
+```
+
+---
+
+### \:get_fixed_joint()
+
+Gets a fixed joint by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local fixed_joint = Scene:get_fixed_joint(0);
+```
+
+---
+
+### \:get_audio()
+
+Gets an Audio!!
+
+---
+
+### \:get_objects_in_circle()
+
+Gets a list of objects which overlap a circle. Allows passing a radius of `0.` for getting objects that overlap a point.
+
+#### Example
+```lua
+local objects = Scene:get_objects_in_circle({
+    position = vec2(0, 0),
+    radius = 1,
+});
+```
+
+---
+
+### \:raycast()
+
+I forgot how explain what raycast is but its super useful. Its like a laser and itll tell you what it hits
+
+#### Example
+```lua
+local hits = Scene:raycast({
+    origin = vec2(0, 0), -- where to start the ray
+    direction = vec2(1, 1), -- direction of the ray, itll be normalized probably
+    distance = 1000, -- how long before it gives up on everything in life
+    closest_only = true, -- if false it should get the everything along the way (nothing is tested in this insane game)
+});
+
+-- each hit is a table, it has:
+--   - object
+--   - point (vec2)
+--   - normal (vec2, like the reflection of the ray on the surface it hit)
+--   - fraction (how far along the distance the hit was, from 0 to 1)
+```
+
+---
+
+### \:get_objects_in_box()
+
+Gets a list of objects which overlap a box.
+
+#### Example
+```lua
+local objects = Scene:get_objects_in_box({
+    position = vec2(0, 0),
+    size = vec2(1, 1),
+});
+```
+
+---
+
+### \:get_attachments_in_circle()
+
+Gets a list of attachments which overlap a circle. Allows passing a radius of `0.` for getting attachments that overlap a point.
+
+Note: this is currently done really shittily, in final thing itll do it properly but for now it just loops over all attachments and checks how close position is
+
+#### Example
+```lua
+local attachments = Scene:get_attachments_in_circle({
+    position = vec2(0, 0),
+    radius = 1,
+});
+```
+
+---
+
+### \:get_attachments_in_box()
+
+Gets a list of attachments which overlap a box.
+
+#### Example
+```lua
+local attachments = Scene:get_attachments_in_box({
+    position = vec2(0, 0),
+    size = vec2(1, 1),
+});
+```
+
+---
+
+### \:get_all_objects()
+
+Gets all the objects in the scene
+
+#### Example
+```lua
+local objects = Scene:get_all_objects();
+
+-- loop through all objects
+for _, object in ipairs(objects) do
+    print(object.id);
+end;
+```
+
+---
+
+### \:get_all_springs()
+
+Gets all the springs in the scene
+
+#### Example
+```lua
+local springs = Scene:get_all_springs();
+```
+
+---
+
+### \:get_all_hinges()
+
+Gets all the hinges in the scene
+
+#### Example
+```lua
+local hinges = Scene:get_all_hinges();
+```
+
+---
+
+### \:get_all_bolts()
+
+Gets all the bolts in the scene
+
+#### Example
+```lua
+local bolts = Scene:get_all_bolts();
+```
+
+---
+
+### \:get_all_fixed_joints()
+
+Gets all the fixed joints in the scene
+
+#### Example
+```lua
+local fixed_joints = Scene:get_all_fixed_joints();
+```
+
+---
+
+### \:get_all_players()
+
+Gets all the players in the scene
+
+#### Example
+```lua
+local players = Scene:get_all_players();
+```
+
+---
+
+### \:get_component()
+
+Gets a component by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local component = Scene:get_component(0);
+```
+
+---
+
+### \:get_attachment()
+
+Gets a attachment by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local attachment = Scene:get_attachment(0);
+```
+
+---
+
+### \:get_all_components()
+
+Gets all the components in the scene
+
+#### Example
+```lua
+local components = Scene:get_all_components();
+```
+
+---
+
+### \:get_all_attachments()
+
+Gets all the attachments in the scene
+
+#### Example
+```lua
+local attachments = Scene:get_all_attachments();
+```
+
+---
+
+### \:add_component_def()
+
+Add a new component definition to the scene, that you can then add instances of on objects. You add it on objects with `:add_component({ hash = hash });`, though there are also optional `saved_data` and `properties` fields
+
+#### Example
+```lua
+local hash = scene:add_component_def({
+    name = "Player",
+    version = "0.1.0",
+    id = "@you/package/player",
+    category = "Miscellaneous",
+
+    -- We can optionally add some settings for the component, shown in right-click menu:
+    properties = {
+        -- the ID of the property (used to access it) is here
+        health = {
+            -- Display name, seen in right-click
+            name = "Health",
+            -- We support "slider", "text", "color", and "toggle". Soon we will have way more
+            input_type = "slider",
+
+            -- For sliders, these are the settings
+            default_value = 100,
+            min_value = 0,
+            max_value = 200,
+
+            -- For color, we have just `default_value`
+            -- For text, we have `default_value` and `multi_line` (set it to true or false)
+            -- For toggles it's just `default_value`.
+
+            -- There's also "button" input type, untested though. It has just `event` field, it'l call `:send_event` on the object. Get that from `on_event` in your components
+        },
+    }
+});
+
+object:add_component({
+    hash = hash,
+});
+```
+
+---
+
+### \:get_ambient_light_color()
+
+Gets the ambient light color
+
+#### Example
+```lua
+local color = Scene:get_ambient_light_color();
+```
+
+
+---
+
+### \:set_ambient_light_color()
+
+Sets the ambient light color
+
+#### Example
+```lua
+Scene:set_ambient_light_color(0xff0000);
+```
+
+---
+
+### \:get_ambient_light_intensity()
+
+Gets the ambient light intensity
+
+#### Example
+```lua
+local intensity = Scene:get_ambient_light_intensity();
+```
+
+---
+
+### \:set_ambient_light_intensity()
+
+Sets the ambient light intensity
+
+#### Example
+```lua
+Scene:set_ambient_light_intensity(0.5);
+```
+
+---
+
+### \:set_bloom()
+
+Sets the bloom
+
+#### Example
+```lua
+Scene:set_bloom(true);
+```
+
+---
+
+### \:get_bloom()
+
+Gets the bloom
+
+#### Example
+```lua
+local bloom = Scene:get_bloom();
+```
+
+---
+
+### \:get_background_color()
+
+Gets the background color
+
+#### Example
+```lua
+local color = Scene:get_background_color();
+```
+
+---
+
+### \:set_background_color()
+
+Sets the background color
+
+#### Example
+```lua
+Scene:set_background_color(0xff0000);
+```
+

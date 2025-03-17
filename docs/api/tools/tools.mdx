@@ -1,0 +1,90 @@
+---
+sidebar_position: 2
+title: Tools
+description: All of Simulo's built-in tools are made in Lua, and you can make your own in the same way.
+---
+
+# Tools
+
+All of Simulo's built-in tools are made in Lua, and you can make your own in the same way.
+
+For some examples, look in [`core` package](/api/core), it has the built-in tools.
+
+To make your own, first:
+
+- Go in Simulo folder (you can use **File** → **Open Simulo Folder** in-game)
+- Go in `tools` folder there
+
+Now, in there, make a folder. You should pick a nice lowercase name, with underscores instead of spaces, like `my_tool`.
+
+Next, add a new file there named `tool.toml`. If you're on Windows, you'll need to enable viewing file extensions, see [this page](https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01). If you're on Mac, use [this guide](https://support.apple.com/en-ca/guide/mac-help/mchlp2304/mac).
+
+Put this in the file:
+```toml
+[tool]
+name = "Cool Name"
+version = "0.1.0"
+```
+
+Now make a `src` folder, and put in a `main.lua`. Inside it, put this:
+```lua
+function on_update()
+    if self:pointer_just_pressed() then
+        RemoteScene:run({
+            input = self:pointer_pos(),
+            code = [[
+                Sceme:add_box({ position = input });
+            ]],
+        });
+    end;
+end;
+```
+
+If you've been using components, you might be like "Woah Woah What the Heck is that Whats a RemoteScene what". Don't worry, we have a page for that in the sidebar.
+
+Anyways go in **File** → **Packages** → **Refresh** and Toolbar Editor should open and show your tool with a question mark icon.
+
+You can put in a pretty 128x128px white transparent icon in the tool folder named `icon.png` to make it look nicer, but you'll need restart Simulo to see new icon.
+
+## Tool Settings How?
+
+Just add this at the end of the `tool.toml`:
+```toml
+[[property]]
+id = "box_size"
+
+name = "Box Size"
+
+input_type = "slider"
+
+default_value = 1.0
+min_value = 0.1
+max_value = 10.0
+```
+
+Now, in `main.lua`, replace this part:
+
+```diff
+-         RemoteScene:run({
+-             input = self:pointer_pos(),
+-             code = [[
+-                 Sceme:add_box({ position = input });
+-             ]],
+-         });
++         RemoteScene:run({
++             input = {
++                 point = self:pointer_pos(),
++                 size = self:get_property("box_size).value,
++             },
++             code = [[
++                 Sceme:add_box({
++                     position = input.point,
++                     size = input.size,
++                 });
++             ]],
++         });
+```
+
+Sorry for all the plus signs but it makes the nice green effect. Maybe if you type it yourself you'll remember it better and learn faster.
+
+Anyway refresh again and BAM, it umm yeah.

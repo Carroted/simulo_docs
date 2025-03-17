@@ -1,0 +1,73 @@
+# Vec2
+
+<Type name="vec2" /> is Simulo's built-in type for 2D vectors.
+
+## Constructor
+
+To create a <Type name="vec2" />, use the global `vec2(x, y)` function:
+
+```lua
+local vec = vec2(5, 5);
+```
+
+## Arithmetic
+
+Operators are implemented; you can use `+`, `-`, `*` and `/` on <Type name="vec2" />s.
+
+## Fields
+
+---
+
+### .x
+
+The X component of the <Type name="vec2" />. Is a <Type name="number" />.
+
+---
+
+### .y
+
+The Y component of the <Type name="vec2" />. Is a <Type name="number" />.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:length()
+
+Returns the length of the <Type name="vec2" /> as a <Type name="number" />.
+
+#### Example
+
+```lua
+local length = vec2(1, 1); -- about 1.414
+```
+
+---
+
+### \:normalize()
+
+Returns a copy of the <Type name="vec2" /> with the length as `1`.
+
+#### Example
+
+```lua
+local vec = vec2(123, 456):normalize();
+print(vec:length()); -- 1
+```
+
+---
+
+### \:rotate()
+
+Returns a copy of the <Type name="vec2" /> rotated by a specified number of radians.
+
+#### Example
+
+```lua
+local vec = vec2(0, 1):rotate(math.rad(90)); -- the vec is now vec2(1, 0)
+```
+

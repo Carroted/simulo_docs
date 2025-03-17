@@ -1,0 +1,30 @@
+# Gizmos
+
+Gizmos are useful for drawing stuff for testing your creations. For example, if you call `Gizmo:line` each frame with the points being the start and end of a `Scene:raycast` you're doing, you'll be able to see what's going on Visually.
+
+We will get more than line soon but for now it's all just lines.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:line()
+
+Draw a line between 2 points. This should be called for each frame the line needs to be rendered.
+
+#### Example
+```lua
+-- in a component on_update we can do this
+function on_update()
+    Gizmos:line({
+        point_a = vec2(0, 0),
+        point_b = vec2(1, 1),
+        color = Color:rgba(1, 1, 1, 0.5),
+    });
+end;
+```
+

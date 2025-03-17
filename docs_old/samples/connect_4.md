@@ -5,28 +5,14 @@ Here's a popular board game recreated in Simulo by Jorin!
 ![Screenshot](./img/connect4.png)
 
 ```lua
--- Reset Simulo scene to default by deleting all objects and restoring the default ground plane
-function reset()
-    local objs = Scene:get_all_objects();
-    for i=1,#objs do
-        objs[i]:destroy();
-    end;
-    Scene:add_box({
-        position = vec2(0, -120),
-        size = vec2(1000, 100),
-        color = 0xb9a1c4,
-        is_static = true,
-    });
-end;
-
-reset();
+Scene:reset();
 
 function wall(x,y,sx,sy)
     Scene:add_box({
         position = vec2(x, y),
         size = vec2(sx, sy),
         color = 0x404aa3,
-        is_static = true,
+        body_type = BodyType.Static,
     });
 end;
 
@@ -44,7 +30,7 @@ function makeBoard()
         Scene:add_circle({
             position = vec2(11.5,2*i),
             radius = 0.75,
-            is_static = false,
+            body_type = BodyType.Dynamic,
             color = 0xeb4034,
         })
     end;
@@ -52,7 +38,7 @@ function makeBoard()
         Scene:add_circle({
             position = vec2(-11.5,2*i),
             radius = 0.75,
-            is_static = false,
+            body_type = BodyType.Dynamic,
             color = 0xfbb954,
         })
     end;

@@ -1,0 +1,83 @@
+---
+title: core
+description: The `core` package is pre-installed in Simulo, and contains the built-in tools, objects and templates.
+---
+
+# `core`
+
+Simulo comes with a pre-installed package named `core`. You can find it like this:
+
+1. Open Simulo
+2. Click **File** → **Open Simulo Folder**
+3. Go in 📁 `packages` folder
+4. Go in 📁 `core` folder
+
+All the built-in tools of Simulo (Drag Tool, Box Tool, etc.) are in the `core/tools` folder. Built-in objects, like Simulons, are in `core/objects`.
+
+## Functions
+
+The `core` package contains some functions you can import with [`require`](/api/require).
+
+### bolt
+
+If you add a bolt joint using the `Scene:add_bolt` function, you'll see it works and connects the objects, but there is no visible joint in Simulo. That's because when you use the Bolt Tool, it's adding an [Attachment](/api/Attachment) for you, which manages the bolt joint.
+
+However, the Bolt Tool uses a public `bolt` function which you can import and use yourself in your own scripts. Thus, you can add bolts in the same way as the tool, with a visible joint the user can remove. Here's how to do it:
+
+```lua
+local bolt = require('core/lib/bolt.lua'); -- Import bolt function from core package
+
+-- Placeholder objects, you need to put real values!
+local object_a = ...;
+local object_b = ...;
+local point = vec2(0, 0); -- World point to add the bolt
+
+bolt({
+    object_a = object_a,
+    object_b = object_b,
+    point = point,
+
+    sound = true, -- Disable this for silent bolt
+    size = 0.3, -- Bolt Tool uses size of 0.3. This controls how large the bolt will look
+    color = Color:rgba(1, 1, 1, 0), -- We can set it to be invisible
+});
+```
+
+It has defaults, and so all you really need is `object_a`, `object_b` and `point`.
+
+### hinge
+
+If you add a hinge joint using the `Scene:add_hinge` function, you'll see it works and connects the objects, but there is no visible joint in Simulo. That's because when you use the Hinge Tool, it's adding an [Attachment](/api/Attachment) for you, which manages the hinge joint.
+
+However, the Hinge Tool uses a public `hinge` function which you can import and use yourself in your own scripts. Thus, you can add hinges in the same way as the tool, with a visible joint the user can remove. Here's how to do it:
+
+```lua
+local hinge = require('core/lib/hinge.lua'); -- Import bolt function from core package
+
+-- Placeholder objects, you need to put real values!
+local object_a = ...;
+local object_b = ...;
+local point = vec2(0, 0); -- World point to add the bolt
+
+hinge({
+    object_a = object_a,
+    object_b = object_b,
+    point = point,
+
+    sound = true, -- Disable this for silent hinge
+    size = 0.3, -- Hinge Tool uses size of 0.3. This controls how large the hinge will look
+    color = Color:rgba(1, 1, 1, 0), -- We can set it to be invisible
+
+    -- These will default to having no motor, you can omit them.
+    motor_enabled = true,
+    motor_speed = 10,
+    max_motor_torque = 10,
+    
+    -- These also default to being off:
+    limit = true,
+    lower_limit_angle = 0.2, -- radians
+    upper_limit_angle = 0.2,
+});
+```
+
+It has defaults, and so all you really need is `object_a`, `object_b` and `point`.

@@ -1,0 +1,25 @@
+---
+title: require
+description: The `require` function allows importing functions, assets and components in Simulo.
+---
+
+# `require`
+
+In Simulo, we have the global `require` function. It's available in components and the script box, but NOT directly in tools. To use it in tools, you'll need [`RemoteScene:run`](/api/tools/remotescene).
+
+`require` is what you use to import things like:
+- Lua variables or functions
+- Assets (images, audio, etc.)
+- Components
+
+It can only load things in your Simulo folder. You can either use a relative path (like `./packages/@user/package/...`), or a package path (like `@user/package/...`). You can use either, the only difference is the latter is shorter and cleaner.
+
+```lua
+-- You can use a package path like @user/package/... to import
+local image = require('@joe/stuff/assets/image.png'); -- resolves to ./packages/@joe/...
+
+-- Or you can use a path relative to the Simulo folder directly:
+local audio = require('./objects/my_object/scream.wav');
+
+local texture = require('core/assets/textures/point_light.png');
+```
