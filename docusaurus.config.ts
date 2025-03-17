@@ -213,7 +213,7 @@ const config: Config = {
     },
     prism: {
       theme: ourTheme,
-      additionalLanguages: ['lua'],
+      additionalLanguages: ['lua', 'toml', 'diff'],
     },
     colorMode: {
       defaultMode: 'dark',
