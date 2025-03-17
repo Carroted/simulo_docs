@@ -33,7 +33,7 @@ function on_update()
         RemoteScene:run({
             input = self:pointer_pos(),
             code = [[
-                Sceme:add_box({ position = input });
+                Scene:add_box({ position = input });
             ]],
         });
     end;
@@ -68,7 +68,7 @@ Now, in `main.lua`, replace this part:
 -         RemoteScene:run({
 -             input = self:pointer_pos(),
 -             code = [[
--                 Sceme:add_box({ position = input });
+-                 Scene:add_box({ position = input });
 -             ]],
 -         });
 +         RemoteScene:run({
@@ -77,7 +77,7 @@ Now, in `main.lua`, replace this part:
 +                 size = self:get_property("box_size).value,
 +             },
 +             code = [[
-+                 Sceme:add_box({
++                 Scene:add_box({
 +                     position = input.point,
 +                     size = input.size,
 +                 });
