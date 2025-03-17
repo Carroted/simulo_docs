@@ -1,0 +1,37 @@
+# RemoteScene
+
+The `RemoteScene` represents a scene which isn't necessarily being hosted by the local device.
+
+The only way to interact with it is by sending Lua code with the `run` function.
+Since this is designed for multiplayer, you don't immediately get output from the code you ran, but rather in a callback some time later.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:run()
+
+Send some code to run on the scene. When it is ran, output will be returned, and the `callback` will be called. This may be anywhere between no delay (if you're hosting), or it could be multiple seconds later.
+
+When `unreliable` is set to true, the delay will be lower, but the packet may be lost. It can thus be used for things you need to do extremely often, where some being missed is acceptable.
+
+Specifically actually, with unreliable set to true, we intentionally drop most of your RemoteScene:runs. that way you can call this all the time and simulo will take care of not sending it too often so it doesnt lag. Like drag tool can update spring nonstop, and in singleplayer itll do it all the time, but in multiplayer, remote clients will only send it like about 30 times per second
+
+#### Example
+```lua
+RemoteScene:run({
+    code = [[
+        return 2 + 2;
+    ]],
+    callback = function(output)
+        print("Got", output); -- Should print "Got 4"
+    end,
+    -- Since we didn't specify `unreliable`, it defaults to false.
+    -- We can thus be sure that the code will be ran.
+});
+```
+

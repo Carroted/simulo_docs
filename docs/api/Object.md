@@ -1,0 +1,523 @@
+# Object
+
+All objects in a Simulo scene, such as boxes, circles, polygons, etc, are known to the API as <Type name="object" />s.
+
+An <Type name="object" /> reference is typically obtained by:
+- Getting it with `Scene:get_object`
+- Getting it with `Scene:get_all_objects`
+- Using `self` in a [Component](/api/components/) script
+
+## Fields
+
+---
+
+### .id
+
+Identifier for the object. Is a <Type name="number" />.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:destroy()
+
+Destroys the object. This will remove it from the scene and destroy its components.
+
+#### Example
+
+```lua
+self:destroy();
+```
+
+---
+
+### \:get_linear_velocity()
+
+Returns the linear velocity of the object as a <Type name="vec2" />. Measured in meters per second.
+
+#### Example
+
+```lua
+local linvel = self:get_linear_velocity();
+```
+
+---
+
+### \:set_linear_velocity()
+
+Sets the linear velocity of the object to a <Type name="vec2" />. Measured in meters per second.
+
+Note that this will not behave realistically. You may want to use [`:apply_force_to_center`](#apply_force_to_center) instead.
+
+#### Example
+
+```lua
+self:set_linear_velocity(vec2(1, 1));
+```
+
+---
+
+### \:get_angular_velocity()
+
+Gets the angular velocity of the object as a <Type name="number" />. Measured in radians per second.
+
+#### Example
+
+```lua
+local angvel = self:get_angular_velocity();
+```
+
+---
+
+### \:apply_force_to_center()
+
+Applies a force to the center of mass.
+
+#### Example
+
+```lua
+self:apply_force_to_center(vec2(1, 1));
+```
+
+---
+
+### \:apply_force()
+
+Applies a force to the object at a world point.
+
+#### Example
+
+```lua
+self:apply_force(vec2(1, 1), vec2(100, 100));
+```
+
+---
+
+### \:apply_torque()
+
+Applies a torque to the object.
+
+#### Example
+
+```lua
+self:apply_torque(100);
+```
+
+---
+
+### \:apply_angular_impulse()
+
+Applies an angular impulse to the object.
+
+#### Example
+
+```lua
+self:apply_angular_impulse(100);
+```
+
+---
+
+### \:apply_linear_impulse()
+
+Applies a linear impulse to the object at a world point.
+
+#### Example
+
+```lua
+self:apply_linear_impulse(vec2(1, 1), vec2(100, 100));
+```
+
+---
+
+### \:apply_linear_impulse_to_center()
+
+Applies a linear impulse to the object to the center of mass.
+
+#### Example
+
+```lua
+self:apply_linear_impulse_to_center(vec2(1, 1));
+```
+
+---
+
+### \:get_mass()
+
+Gets the mass of the object as a <Type name="number" />. Measured in uhh i forgot, check box2d docs
+
+#### Example
+
+```lua
+local mass = self:get_mass();
+```
+
+---
+
+### \:set_angular_velocity()
+
+Sets the angular velocity of the object to a <Type name="number" />. Measured in radians per second.
+
+#### Example
+
+```lua
+self:set_angular_velocity(math.rad(10)); -- 10 degrees per second
+```
+
+---
+
+### \:get_position()
+
+Gets the position of the object as a <Type name="number" />.
+
+#### Example
+
+```lua
+local pos = self:get_position();
+```
+
+---
+
+### \:get_pivot()
+
+\:set_angle rotates around it
+
+---
+
+### \:set_position()
+
+Sets the position of the object to a <Type name="number" />.
+
+#### Example
+
+```lua
+self:set_position(vec2(100, 100));
+```
+
+---
+
+### \:send_event()
+
+Sends an event to the object, all its components, and all its attachments, and all components on those. Wow!
+
+---
+
+### \:get_angle()
+
+Gets the angle of the object as a <Type name="number" />. Measured in radians.
+
+#### Example
+
+```lua
+local angle = self:get_angle();
+```
+
+---
+
+### \:set_angle()
+
+Sets the angle of the object to a <Type name="number" />. Measured in radians.
+
+#### Example
+
+```lua
+self:set_angle(math.rad(45)); -- 45 degrees
+```
+
+---
+
+### \:get_direct_connected()
+
+Gets all objects directly connected to this object by joints. For example, if you hinge together a bunch of boxes to make a rope, this only returns the previous and next box in the rope, not the entire rope. Insane
+
+#### Example
+
+```lua
+local objects = self:get_direct_connected();
+```
+
+---
+
+### \:get_touching()
+
+Gets all objects this object is touching.
+
+#### Example
+
+```lua
+local objects = self:get_touching();
+```
+
+---
+
+### \:get_all_bolted()
+
+Gets all objects connected to this object by bolts. For example, if you make a giant chain of stuff bolted together, this will return the entire chain, not just the stuff this object is directly bolted to.
+
+#### Example
+
+```lua
+local objects = self:get_all_bolted();
+```
+
+---
+
+### \:get_name()
+
+Gets the name of the object as a <Type name="string" />.
+
+#### Example
+
+```lua
+local name = self:get_name();
+```
+
+---
+
+### \:set_name()
+
+Sets the name of the object to a <Type name="string" />.
+
+#### Example
+
+```lua
+self:set_name("Joe");
+```
+
+---
+
+### \:get_color()
+
+Gets the color of the object as a <Type name="color" />.
+
+#### Example
+
+```lua
+local color = self:get_color();
+```
+
+---
+
+### \:set_color()
+
+Sets the color of the object to a <Type name="color" />.
+
+#### Example
+
+```lua
+self:set_color(Color:rgb(1.0, 0.0, 0.0)); -- red
+```
+
+---
+
+### \:get_z_index()
+
+Gets the Z index of the object as a <Type name="number" />.
+
+#### Example
+
+```lua
+local z_index = self:get_z_index();
+```
+
+---
+
+### \:get_restitution()
+
+Gets the restitution of the object as a <Type name="number" />.
+
+---
+
+### \:set_restitution()
+
+Sets the restitution of the object to a <Type name="number" />.
+
+---
+
+### \:get_friction()
+
+Gets the friction of the object as a <Type name="number" />.
+
+---
+
+### \:set_friction()
+
+Sets the friction of the object to a <Type name="number" />.
+
+---
+
+### \:get_gravity_scale()
+
+Gets the gravity scale of the object as a <Type name="number" />.
+
+---
+
+### \:set_gravity_scale()
+
+Sets the gravity scale of the object to a <Type name="number" />.
+
+---
+
+### \:get_linear_damping()
+
+Gets the linear damping of the object as a <Type name="number" />.
+
+---
+
+### \:set_linear_damping()
+
+Sets the linear damping of the object to a <Type name="number" />.
+
+---
+
+### \:get_angular_damping()
+
+Gets the angular damping of the object as a <Type name="number" />.
+
+---
+
+### \:set_angular_damping()
+
+Sets the angular damping of the object to a <Type name="number" />.
+
+---
+
+### \:get_body_type()
+
+Gets the body type of the object. It will be equal to `BodyType.Dynamic`, `BodyType.Static`, or `BodyType.Kinematic`.
+
+---
+
+### \:set_body_type()
+
+Sets the body type of the object. It can be `BodyType.Dynamic`, `BodyType.Static`, or `BodyType.Kinematic`.
+
+---
+
+### \:get_ccd_enabled()
+
+Gets whether continuous collision detection is enabled for the object.
+
+---
+
+### \:set_ccd_enabled()
+
+Sets whether continuous collision detection is enabled for the object. It only applies when an object with CCD touches an object without CCD, so don't just enable it for everything. You should instead only put it on fast-moving objects, like bullets, ping-pong balls, etc.
+
+---
+
+### \:get_is_sensor()
+
+Gets whether the object is a sensor. Sensors do not collide with other objects, but they still trigger collision events.
+
+---
+
+### \:get_is_awake()
+
+Gets whether the object is awake. Awake objects are actively simulated.
+
+---
+
+### \:set_is_awake()
+
+Sets whether the object is awake. Awake objects are actively simulated.
+
+---
+
+### \:get_density()
+
+Gets the density of the object as a <Type name="number" />.
+
+---
+
+### \:set_density()
+
+Sets the density of the object to a <Type name="number" />.
+
+---
+
+### \:get_local_point()
+
+Get local point from a world one
+
+---
+
+### \:get_world_point()
+
+Get world point from a local one
+
+---
+
+### \:get_components()
+
+Gets a list of all the components attached to the object.
+
+---
+
+### \:get_joints()
+
+Gets a list of all the joints attached to the object.
+
+---
+
+### \:get_hinges()
+
+Gets a list of all the hinges attached to the object.
+
+---
+
+### \:get_bolts()
+
+Gets a list of all the bolts attached to the object.
+
+---
+
+### \:get_springs()
+
+Gets a list of all the springs attached to the object.
+
+---
+
+### \:get_fixed_joints()
+
+Gets a list of all the fixed joints attached to the object.
+
+---
+
+### \:get_collision_layers()
+
+Gets the list of collision layers this object is in.
+
+---
+
+### \:set_collision_layers()
+
+Sets the list of collision layers this object is in.
+
+---
+
+### \:add_component()
+
+Adds a component to the object. It will not be started immediately, but rather remain "sleeping" until the next step when the scene isn't paused. This is so we edit component values in right-click menus before the component is started.
+
+#### Example
+```lua
+local component = self:add_component({ hash = "<Some hash>" });
+
+local component = self:add_component({
+    hash = "<Some hash>",
+    saved_data = {
+        some_value = 10,
+    },
+});
+```
+
+---
+
+### \:get_type()
+
+Returns `"object"`.
+
