@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/Player" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.4.0">
+<title data-rh="true">Player | Simulo Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:image" content="https://docs.simulo.org/img/docs.png"><meta data-rh="true" name="twitter:image" content="https://docs.simulo.org/img/docs.png"><meta data-rh="true" property="og:url" content="https://docs.simulo.org/api/Player/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="keywords" content="simulo, dev, docs"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" name="theme-color" content="#1d1121"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Player | Simulo Docs"><meta data-rh="true" name="description" content="Gaming"><meta data-rh="true" property="og:description" content="Gaming"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.simulo.org/api/Player/"><link data-rh="true" rel="alternate" href="https://docs.simulo.org/api/Player/" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.simulo.org/api/Player/" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.3b400bb3.css">
+<script src="/assets/js/runtime~main.7225e44d.js" defer="defer"></script>
+<script src="/assets/js/main.77ea174b.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"dark")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Simulo Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="Simulo Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/api/intro/">API Docs</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/Carroted/simulo_docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Docs Source<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/intro/">API Docs Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/tools/">Tools</a><button aria-label="Expand sidebar category &#x27;Tools&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/Attachment/">Attachment</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/Color/">Color</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/Component/">Component</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/Gizmos/">Gizmos</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/Object/">Object</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/api/Player/">Player</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/Scene/">Scene</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/Vec2/">Vec2</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/core/">core</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/joints/">Joints</a><button aria-label="Expand sidebar category &#x27;Joints&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/packages/">Packages</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/require/">require</a><button aria-label="Expand sidebar category &#x27;require&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Player</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Player</h1>
+<p>Gaming</p>
+<p>A <a class="type player" href="/api/intro">player</a> reference is typically obtained by:</p>
+<ul>
+<li>Scene<!-- -->:get_all_players<!-- -->()</li>
+<li>Scene<!-- -->:get_player<!-- -->()</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="input">Input<a class="hash-link" aria-label="Direct link to Input" title="Direct link to Input" href="/api/Player/#input">​</a></h2>
+<p>All input is handled with the Player API.</p>
+<p>Below is a list of the keycodes you can use in functions like key_pressed. Many other keys are supported but omitted from this list for brevity.</p>
+<ul>
+<li>
+<kbd>`</kbd>
+</li>
+<li>
+<kbd>\</kbd>
+</li>
+<li>
+<kbd>[</kbd>
+</li>
+<li>
+<kbd>]</kbd>
+</li>
+<li>
+<kbd>,</kbd>
+</li>
+<li>
+<kbd>0</kbd>
+</li>
+<li>
+<kbd>1</kbd>
+</li>
+<li>
+<kbd>2</kbd>
+</li>
+<li>
+<kbd>3</kbd>
+</li>
+<li>
+<kbd>4</kbd>
+</li>
+<li>
+<kbd>5</kbd>
+</li>
+<li>
+<kbd>6</kbd>
+</li>
+<li>
+<kbd>7</kbd>
+</li>
+<li>
+<kbd>8</kbd>
+</li>
+<li>
+<kbd>9</kbd>
+</li>
+<li>
+<kbd>=</kbd>
+</li>
+<li>
+<kbd>A</kbd>
+</li>
+<li>
+<kbd>B</kbd>
+</li>
+<li>
+<kbd>C</kbd>
+</li>
+<li>
+<kbd>D</kbd>
+</li>
+<li>
+<kbd>E</kbd>
+</li>
+<li>
+<kbd>F</kbd>
+</li>
+<li>
+<kbd>G</kbd>
+</li>
+<li>
+<kbd>H</kbd>
+</li>
+<li>
+<kbd>I</kbd>
+</li>
+<li>
+<kbd>J</kbd>
+</li>
+<li>
+<kbd>K</kbd>
+</li>
+<li>
+<kbd>L</kbd>
+</li>
+<li>
+<kbd>M</kbd>
+</li>
+<li>
+<kbd>N</kbd>
+</li>
+<li>
+<kbd>O</kbd>
+</li>
+<li>
+<kbd>P</kbd>
+</li>
+<li>
+<kbd>Q</kbd>
+</li>
+<li>
+<kbd>R</kbd>
+</li>
+<li>
+<kbd>S</kbd>
+</li>
+<li>
+<kbd>T</kbd>
+</li>
+<li>
+<kbd>U</kbd>
+</li>
+<li>
+<kbd>V</kbd>
+</li>
+<li>
+<kbd>W</kbd>
+</li>
+<li>
+<kbd>X</kbd>
+</li>
+<li>
+<kbd>Y</kbd>
+</li>
+<li>
+<kbd>Z</kbd>
+</li>
+<li>
+<kbd>-</kbd>
+</li>
+<li>
+<kbd>.</kbd>
+</li>
+<li>
+<kbd>&#x27;</kbd>
+</li>
+<li>
+<kbd>;</kbd>
+</li>
+<li>
+<kbd>/</kbd>
+</li>
+<li>
+<kbd>AltLeft</kbd>
+</li>
+<li>
+<kbd>AltRight</kbd>
+</li>
+<li>
+<kbd>Backspace</kbd>
+</li>
+<li>
+<kbd>CapsLock</kbd>
+</li>
+<li>
+<kbd>ContextMenu</kbd>
+</li>
+<li>
+<kbd>ControlLeft</kbd>
+</li>
+<li>
+<kbd>ControlRight</kbd>
+</li>
+<li>
+<kbd>Enter</kbd>
+</li>
+<li>
+<kbd>SuperLeft</kbd>
+</li>
+<li>
+<kbd>SuperRight</kbd>
+</li>
+<li>
+<kbd>ShiftLeft</kbd>
+</li>
+<li>
+<kbd>ShiftRight</kbd>
+</li>
+<li>
+<kbd> </kbd>
+</li>
+<li>
+<kbd>Tab</kbd>
+</li>
+<li>
+<kbd>Delete</kbd>
+</li>
+<li>
+<kbd>End</kbd>
+</li>
+<li>
+<kbd>Home</kbd>
+</li>
+<li>
+<kbd>Insert</kbd>
+</li>
+<li>
+<kbd>PageDown</kbd>
+</li>
+<li>
+<kbd>PageUp</kbd>
+</li>
+<li>
+<kbd>ArrowDown</kbd>
+</li>
+<li>
+<kbd>ArrowLeft</kbd>
+</li>
+<li>
+<kbd>ArrowRight</kbd>
+</li>
+<li>
+<kbd>ArrowUp</kbd>
+</li>
+<li>
+<kbd>NumLock</kbd>
+</li>
+<li>
+<kbd>Numpad0</kbd>
+</li>
+<li>
+<kbd>Numpad1</kbd>
+</li>
+<li>
+<kbd>Numpad2</kbd>
+</li>
+<li>
+<kbd>Numpad3</kbd>
+</li>
+<li>
+<kbd>Numpad4</kbd>
+</li>
+<li>
+<kbd>Numpad5</kbd>
+</li>
+<li>
+<kbd>Numpad6</kbd>
+</li>
+<li>
+<kbd>Numpad7</kbd>
+</li>
+<li>
+<kbd>Numpad8</kbd>
+</li>
+<li>
+<kbd>Numpad9</kbd>
+</li>
+<li>
+<kbd>NumpadAdd</kbd>
+</li>
+<li>
+<kbd>NumpadBackspace</kbd>
+</li>
+<li>
+<kbd>NumpadClear</kbd>
+</li>
+<li>
+<kbd>NumpadClearEntry</kbd>
+</li>
+<li>
+<kbd>NumpadComma</kbd>
+</li>
+<li>
+<kbd>NumpadDecimal</kbd>
+</li>
+<li>
+<kbd>NumpadDivide</kbd>
+</li>
+<li>
+<kbd>NumpadEnter</kbd>
+</li>
+<li>
+<kbd>NumpadEqual</kbd>
+</li>
+<li>
+<kbd>NumpadHash</kbd>
+</li>
+<li>
+<kbd>NumpadMemoryAdd</kbd>
+</li>
+<li>
+<kbd>NumpadMemoryClear</kbd>
+</li>
+<li>
+<kbd>NumpadMemoryRecall</kbd>
+</li>
+<li>
+<kbd>NumpadMemoryStore</kbd>
+</li>
+<li>
+<kbd>NumpadMemorySubtract</kbd>
+</li>
+<li>
+<kbd>NumpadMultiply</kbd>
+</li>
+<li>
+<kbd>NumpadParenLeft</kbd>
+</li>
+<li>
+<kbd>NumpadParenRight</kbd>
+</li>
+<li>
+<kbd>NumpadStar</kbd>
+</li>
+<li>
+<kbd>NumpadSubtract</kbd>
+</li>
+<li>
+<kbd>Escape</kbd>
+</li>
+<li>
+<kbd>Fn</kbd>
+</li>
+<li>
+<kbd>Meta</kbd>
+</li>
+<li>
+<kbd>Hyper</kbd>
+</li>
+<li>
+<kbd>Turbo</kbd>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fields">Fields<a class="hash-link" aria-label="Direct link to Fields" title="Direct link to Fields" href="/api/Player/#fields">​</a></h2>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="id">.id<a class="hash-link" aria-label="Direct link to .id" title="Direct link to .id" href="/api/Player/#id">​</a></h3>
+<p>Identifier for the player. Is a <a class="type number" href="/api/intro">number</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" href="/api/Player/#functions">​</a></h2>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Make sure to use <code>:function()</code> and not <code>.function()</code>, or you&#x27;ll get an error</p></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pointer_pos">:pointer_pos()<a class="hash-link" aria-label="Direct link to :pointer_pos()" title="Direct link to :pointer_pos()" href="/api/Player/#pointer_pos">​</a></h3>
+<p>Get the position of the player&#x27;s cursor in world coordinates.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="grid_pointer_pos">:grid_pointer_pos()<a class="hash-link" aria-label="Direct link to :grid_pointer_pos()" title="Direct link to :grid_pointer_pos()" href="/api/Player/#grid_pointer_pos">​</a></h3>
+<p>Gets the position of the player&#x27;s cursor in world coordinates, snapped to the grid.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="grid_enabled">:grid_enabled()<a class="hash-link" aria-label="Direct link to :grid_enabled()" title="Direct link to :grid_enabled()" href="/api/Player/#grid_enabled">​</a></h3>
+<p>Gets whether or not the player has grid enabled.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="grid_multiplier">:grid_multiplier()<a class="hash-link" aria-label="Direct link to :grid_multiplier()" title="Direct link to :grid_multiplier()" href="/api/Player/#grid_multiplier">​</a></h3>
+<p>Gets the grid multiplier the player has configured.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="grid_size">:grid_size()<a class="hash-link" aria-label="Direct link to :grid_size()" title="Direct link to :grid_size()" href="/api/Player/#grid_size">​</a></h3>
+<p>Gets the grid size the player has configured.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="set_camera_position">:set_camera_position()<a class="hash-link" aria-label="Direct link to :set_camera_position()" title="Direct link to :set_camera_position()" href="/api/Player/#set_camera_position">​</a></h3>
+<p>Sets the position of the player&#x27;s camera.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="set_camera_zoom">:set_camera_zoom()<a class="hash-link" aria-label="Direct link to :set_camera_zoom()" title="Direct link to :set_camera_zoom()" href="/api/Player/#set_camera_zoom">​</a></h3>
+<p>Sets the zoom of the player&#x27;s camera.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key_just_pressed">:key_just_pressed()<a class="hash-link" aria-label="Direct link to :key_just_pressed()" title="Direct link to :key_just_pressed()" href="/api/Player/#key_just_pressed">​</a></h3>
+<p>Returns whether or not a specified key was just pressed.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">key_just_pressed</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token string" style="color:rgb(206, 145, 120)">&quot;W&quot;</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key_just_released">:key_just_released()<a class="hash-link" aria-label="Direct link to :key_just_released()" title="Direct link to :key_just_released()" href="/api/Player/#key_just_released">​</a></h3>
+<p>Returns whether or not a specified key was just released.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-1">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-1">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">key_just_released</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token string" style="color:rgb(206, 145, 120)">&quot;W&quot;</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key_pressed">:key_pressed()<a class="hash-link" aria-label="Direct link to :key_pressed()" title="Direct link to :key_pressed()" href="/api/Player/#key_pressed">​</a></h3>
+<p>Returns whether or not a specified key is currently pressed.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-2">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-2">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">key_pressed</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token string" style="color:rgb(206, 145, 120)">&quot;W&quot;</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pointer_just_pressed">:pointer_just_pressed()<a class="hash-link" aria-label="Direct link to :pointer_just_pressed()" title="Direct link to :pointer_just_pressed()" href="/api/Player/#pointer_just_pressed">​</a></h3>
+<p>Returns whether or not the user just left clicked on the world.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-3">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-3">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">pointer_just_pressed</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pointer_just_released">:pointer_just_released()<a class="hash-link" aria-label="Direct link to :pointer_just_released()" title="Direct link to :pointer_just_released()" href="/api/Player/#pointer_just_released">​</a></h3>
+<p>Returns whether or not the user just released left click from the world.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-4">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-4">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">pointer_just_released</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pointer_pressed">:pointer_pressed()<a class="hash-link" aria-label="Direct link to :pointer_pressed()" title="Direct link to :pointer_pressed()" href="/api/Player/#pointer_pressed">​</a></h3>
+<p>Returns whether or not the user is holding down left click on the world.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-5">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-5">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">pointer_pressed</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pointer_locked">:pointer_locked()<a class="hash-link" aria-label="Direct link to :pointer_locked()" title="Direct link to :pointer_locked()" href="/api/Player/#pointer_locked">​</a></h3>
+<p>Returns whether or not the user&#x27;s pointer has been locked.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-6">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-6">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">pointer_locked</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferred_pointer_pos">:preferred_pointer_pos()<a class="hash-link" aria-label="Direct link to :preferred_pointer_pos()" title="Direct link to :preferred_pointer_pos()" href="/api/Player/#preferred_pointer_pos">​</a></h3>
+<p>If grid is enabled, this returns the grid pointer pos. If CTRL is held, it&#x27;ll invert the grid setting.</p>
+<ul>
+<li>Grid On and CTRL not held → Snapped</li>
+<li>Grid Off and CTRL not held → Normal</li>
+<li>Grid On and CTRL held → Normal</li>
+<li>Grid Off and CTRL held → Snapped</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-7">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-7">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">if</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">preferred_pointer_pos</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token plain"> </span><span class="token keyword" style="color:#9567bd">then</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain">    </span><span class="token comment" style="color:#666666">-- do something</span><span class="token plain"></span><br></span><span class="token-line" style="color:#CCCCCC"><span class="token plain"></span><span class="token keyword" style="color:#9567bd">end</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="snap_if_preferred">:snap_if_preferred()<a class="hash-link" aria-label="Direct link to :snap_if_preferred()" title="Direct link to :snap_if_preferred()" href="/api/Player/#snap_if_preferred">​</a></h3>
+<p>If grid is enabled, this returns the snapped position. If CTRL is held, it&#x27;ll invert the grid setting.</p>
+<ul>
+<li>Grid On and CTRL not held → Snapped</li>
+<li>Grid Off and CTRL not held → Normal</li>
+<li>Grid On and CTRL held → Normal</li>
+<li>Grid Off and CTRL held → Snapped</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-8">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-8">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">local</span><span class="token plain"> snapped </span><span class="token operator" style="color:rgb(212, 212, 212)">=</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">snap_if_preferred</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token function" style="color:#e5c08d">vec2</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token plain">math</span><span class="token punctuation" style="color:rgb(212, 212, 212)">.</span><span class="token plain">pi</span><span class="token punctuation" style="color:rgb(212, 212, 212)">,</span><span class="token plain"> </span><span class="token number" style="color:#a9bc67">942.140513</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="snap_pointer_pos">:snap_pointer_pos()<a class="hash-link" aria-label="Direct link to :snap_pointer_pos()" title="Direct link to :snap_pointer_pos()" href="/api/Player/#snap_pointer_pos">​</a></h3>
+<p>Snaps the provided position to the player&#x27;s grid, regardless of whether or not grid is enabled.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-9">Example<a class="hash-link" aria-label="Direct link to Example" title="Direct link to Example" href="/api/Player/#example-9">​</a></h4>
+<div class="language-lua codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#CCCCCC;--prism-background-color:#0a0a0a"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-lua codeBlock_bY9V thin-scrollbar" style="color:#CCCCCC;background-color:#0a0a0a"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#CCCCCC"><span class="token keyword" style="color:#9567bd">local</span><span class="token plain"> snapped </span><span class="token operator" style="color:rgb(212, 212, 212)">=</span><span class="token plain"> player</span><span class="token punctuation" style="color:rgb(212, 212, 212)">:</span><span class="token function" style="color:#e5c08d">snap_pointer_pos</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token function" style="color:#e5c08d">vec2</span><span class="token punctuation" style="color:rgb(212, 212, 212)">(</span><span class="token plain">math</span><span class="token punctuation" style="color:rgb(212, 212, 212)">.</span><span class="token plain">pi</span><span class="token punctuation" style="color:rgb(212, 212, 212)">,</span><span class="token plain"> </span><span class="token number" style="color:#a9bc67">942.140513</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token punctuation" style="color:rgb(212, 212, 212)">)</span><span class="token punctuation" style="color:rgb(212, 212, 212)">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/api/Object/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Object</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/api/Scene/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Scene</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#input">Input</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#fields">Fields</a><ul><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#id">.id</a></li></ul></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#functions">Functions</a><ul><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#pointer_pos">:pointer_pos()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#grid_pointer_pos">:grid_pointer_pos()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#grid_enabled">:grid_enabled()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#grid_multiplier">:grid_multiplier()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#grid_size">:grid_size()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#set_camera_position">:set_camera_position()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#set_camera_zoom">:set_camera_zoom()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#key_just_pressed">:key_just_pressed()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#key_just_released">:key_just_released()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#key_pressed">:key_pressed()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#pointer_just_pressed">:pointer_just_pressed()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#pointer_just_released">:pointer_just_released()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#pointer_pressed">:pointer_pressed()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#pointer_locked">:pointer_locked()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#preferred_pointer_pos">:preferred_pointer_pos()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#snap_if_preferred">:snap_if_preferred()</a></li><li><a class="table-of-contents__link toc-highlight" href="/api/Player/#snap_pointer_pos">:snap_pointer_pos()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/api/intro/">API Docs</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/e8hJbV2QTB" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://simulo.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Simulo??<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Carroted</div></div></div></footer></div>
+</body>
+</html>
