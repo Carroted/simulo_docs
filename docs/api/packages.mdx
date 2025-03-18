@@ -1,3 +1,67 @@
 # Packages
 
-Wow
+When you want to share your stuff, you first want to make a package.
+
+First, if you want to be uploading Simulo packages on [Simulo Uploads](https://simulo.org/uploads/), sign in on that. You don't need to make an account, it'll just have you log in with Steam.
+
+Next, go to your Simulo packages:
+1. Open Simulo
+2. Click **File** → **Open Simulo Folder**
+3. Go in 📁 `packages` folder
+
+Now, create a new folder. Name it the same @-handle you picked during registration on Simulo uploads, but include the `@` symbol at the start.
+
+Now, in there, make a new folder with the ID you want for your package. It should be whatever you want to call it, but lowercase and not too long, check [Upload Page](https://simulo.org/upload) for specifics.
+
+So now, you should be in a folder like:
+```
+packages/@your_handle/package_id/
+```
+
+For example, `packages/@carroted/electricity/`.
+
+Now, make a new file named `package.toml`. Paste in this:
+```toml
+[package]
+name = "YOUR PACKAGE NAME HERE"
+version = "0.1.0"
+```
+
+Replace the package name there. Now add in an `icon.png` image, a square one, 256x256px.
+
+Now, in there, you can start putting in whatever you wanted to package. For example, if you wanted to put in:
+- Custom tool named `my_tool`
+- Custom object named `my_object`
+
+Then, assuming you created them in the `tools` and `objects` folders in Simulo folder, then you'd just go into those folders, copy the `my_tool` and `my_object` folders respectively, and paste them into new `tools` and `objects` folders in your package folder.
+
+So, the resulting thing can look like this:
+```
+📁 packages
+ ├ 📁 @your_handle
+ │  └ 📁 package_id
+ │     ├ 📁 objects
+ │     │  └ 📁 my_object
+ │     │     └ ⋯
+ │     ├ 📁 tools
+ │     │  └ 📁 my_tool
+ │     │     └ ⋯
+ │     ├ 📄 package.toml
+ │     └ 🖼️ icon.png
+```
+
+Isn't it beautiful? Now, remove your old unpackaged things, so you don't have duplicates.
+
+Now, go in-game. **File** → **Packages** → **Refresh**. Now test out your stuff and make sure you can use it from your package.
+
+After making sure everything 100% works perfectly and there are no more changes to do, click the **Pack** button next to your package name in the packages menu. It'll open your Downloads folder, where there's a new package file.
+
+Go onto the [Upload page](https://simulo.org/upload) and enter your package ID you chose earlier (the one you used for folder name), and upload the file from your downloads folder.
+
+## Updating Packages
+
+If you make changes, just open `package.toml`, and increase the version.
+
+We use SemVer for versions. It's quite simple, and you've probably seen it before, like in Minecraft versions. When you add new features, you'll want to increase the middle number, like going from `0.9.0` to `0.10.0`. When you fix a bug or make a small patch, increase the last number. The first number should be increased if you make a revolutionary change that Changes Everything and your package is completely entirely different.
+
+Then, pack it again, and put that in the same upload page.

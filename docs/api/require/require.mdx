@@ -22,4 +22,13 @@ local image = require('@joe/stuff/assets/image.png'); -- resolves to ./packages/
 local audio = require('./objects/my_object/scream.wav');
 
 local texture = require('core/assets/textures/point_light.png');
+
+local some_value = require('./some_script.lua'); -- it runs the script. anything that isn't `local` is now in our here. whatever that script returns is the return value of the `require`
 ```
+
+Lastly, you can pass a second parameter, to force it to load the thing in a certain type. By default, it'll guess based on the file extension. But we can do this:
+```lua
+local code = require('./packages/core/attachments/camera/attachment.lua', 'string');
+```
+
+That forces the Lua to load as a string, instead of running it. Wow! You can also set to `texture`, `lua`, `audio`, `component` fr.
