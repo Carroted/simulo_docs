@@ -52,7 +52,7 @@ If you add a hinge joint using the `Scene:add_hinge` function, you'll see it wor
 However, the Hinge Tool uses a public `hinge` function which you can import and use yourself in your own scripts. Thus, you can add hinges in the same way as the tool, with a visible joint the user can remove. Here's how to do it:
 
 ```lua
-local hinge = require('core/lib/hinge.lua'); -- Import bolt function from core package
+local hinge = require('core/lib/hinge.lua'); -- Import hinge function from core package
 
 -- Placeholder objects, you need to put real values!
 local object_a = ...;
@@ -81,3 +81,21 @@ hinge({
 ```
 
 It has defaults, and so all you really need is `object_a`, `object_b` and `point`.
+
+### simulon
+
+The Simulo mascot was built from Lua. You can use the `core/lib/simulon.lua` function to spawn your own.
+
+```lua
+local simulon = require('core/lib/simulon.lua'); -- Import simulon function from core package
+
+simulon({
+    -- All fields have defaults
+    position = vec2(0, 0),
+    color = Color.SIMULO_GREEN,
+
+    -- We can also specify these:
+    -- size = 1,
+    -- density = 1,
+});
+```
