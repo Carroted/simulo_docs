@@ -183,9 +183,11 @@ Behold the untested sensorizing. When you add a shape, set `is_sensor = true`. N
 
 ```lua
 function on_sensor_enter(other)
-    -- i think this is called on both the sensor and the object. i honestly know nothing
+    -- called only on the sensor itself
 end;
 ```
+
+You should use `sensor:get_sensed()` to get all the objects it's sensing.
 
 ### on_sensor_exit
 

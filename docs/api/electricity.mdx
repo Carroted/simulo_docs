@@ -1,0 +1,50 @@
+---
+title: Electricity
+description: How to make your own scripted electric components
+---
+
+# Electricity
+
+Simulo comes with a pre-installed package named `core`. In that package, we have electric things like Batteries, Lightbulbs, Wheels, Key Inputs, etc.
+
+When a closed circuit is created with a battery (or with the `Free Energy` component), all conducting objects in the circuit will be sent an `activate` event. This event comes with a `.power` field on its data table.
+
+But, `core`'s electricity things are just one way to trigger the `activate` event. Electricity is not limited to `core`; a `core`-less Simulo can still activate things however it wants.
+
+## How To Make a Custom Scripted Electric Thing
+
+First make a new component. See the [Component page](/api/Component) to find out how.
+
+But, for its code, instead put this:
+
+```lua title="Component code"
+local current_power = 0;
+
+function on_event(id, data)
+    if id == "activate" then
+        current_power += data.power;
+    end;
+end;
+
+function on_step()
+    -- (do something with current_power here)
+
+    current_power = 0;
+end;
+```
+
+Now, if we add this component to something, nothing will happen yet, but its listening to how much power it has. We can do this:
+
+```lua
+-- (keep the rest of the code)
+
+function on_step()
+    self:set_color(Color:mix(0x000000, 0xffffff, current_power));
+
+    current_power = 0;
+end;
+```
+
+And now, if we load the new component (restart Simulo) and add it on something, and touch it on an exposed powered wire, we will see it go from pitch black to white! Wow!
+
+This is just a small example, but you can hear the possibilities. Now go forth and make Everything and anything.

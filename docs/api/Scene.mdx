@@ -99,7 +99,8 @@ Scene:add_attachment({
         version = "0.1.0",
         id = "@you/package/the_the",
         properties = {
-            something = {
+            {
+                id = "something",
                 name = "Something idk",
                 input_type = "slider",
                 default_value = 100,
@@ -610,8 +611,10 @@ local hash = scene:add_component_def({
 
     -- We can optionally add some settings for the component, shown in right-click menu:
     properties = {
-        -- the ID of the property (used to access it) is here
-        health = {
+        -- The order of these is the order they'll be shown in the right-click menu
+        {
+            -- The ID is what we'll use in `:get_property` and `:set_property`
+            id = "health",
             -- Display name, seen in right-click
             name = "Health",
             -- We support "slider", "text", "color", and "toggle". Soon we will have way more

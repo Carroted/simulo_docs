@@ -253,6 +253,18 @@ local objects = self:get_touching();
 
 ---
 
+### \:get_sensed()
+
+When called on a sensor, gets all objects it's currently overlapping.
+
+#### Example
+
+```lua
+local objects = self:get_sensed();
+```
+
+---
+
 ### \:get_all_bolted()
 
 Gets all objects connected to this object by bolts. For example, if you make a giant chain of stuff bolted together, this will return the entire chain, not just the stuff this object is directly bolted to.
@@ -514,7 +526,14 @@ local component = self:add_component({
         some_value = 10,
     },
 
-    -- for Advanced Use we can also give a `properties` table, but its not always a good idea since you need to pass everything about the properties, like the name, input_type, value, settings etc
+    -- for Advanced Use we can also give a `properties` table, but its not always a good idea since you need to pass everything about the properties, like the id, name, input_type, value, settings etc
+    -- and so if you pass `properties`, you have to set all of them, or they'll be missing
+    -- so, if thats not what you want, you should instead do component:set_property after adding the component, like:
+    -- ```
+    -- local prop = component:get_property("some_property_id");
+    -- prop.value = 10;
+    -- component:set_property("some_property_id", prop);
+    -- ```
 });
 ```
 
