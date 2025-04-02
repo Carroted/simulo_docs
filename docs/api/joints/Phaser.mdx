@@ -1,0 +1,56 @@
+# Phaser
+
+A phaser prevents collision between two objects.
+
+You can add these with `Scene`'s `add_phaser` indeed. It and `get_phaser` give you something with the below fields and functions.
+
+## Fields
+
+---
+
+### .id
+
+Identifier for the phaser. Is a <Type name="number" />.
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:destroy()
+
+Destroys the phaser.
+
+---
+
+### \:is_destroyed()
+
+Returns whether or not the phaser still exists.
+
+---
+
+### \:get_object_a()
+
+Gets the first object the phaser is attached to.
+
+---
+
+### \:get_object_b()
+
+Gets the second object the phaser is attached to.
+
+---
+
+### \:get_attachment()
+
+Returns the attachment of the phaser as a <Type name="attachment" />. Can be <Type name="nil" />.
+
+---
+
+### \:get_type()
+
+Returns "phaser". Mainly used after `object:get_joints()` to determine what type of joint it is.
+

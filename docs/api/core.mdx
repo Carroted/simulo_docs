@@ -89,7 +89,7 @@ The Simulo mascot was built from Lua. You can use the `core/lib/simulon.lua` fun
 ```lua
 local simulon = require('core/lib/simulon.lua'); -- Import simulon function from core package
 
-simulon({
+local parts = simulon({
     -- All fields have defaults
     position = vec2(0, 0),
     color = Color.SIMULO_GREEN,
@@ -97,5 +97,5 @@ simulon({
     -- We can also specify these:
     -- size = 1,
     -- density = 1,
-});
+}); -- this has parts.body, parts.box, partx.head. body and box are both torso pieces. all three make up the simulon together
 ```

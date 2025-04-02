@@ -143,7 +143,7 @@ Scene:add_spring({
 
 Adds a new hinge to the scene. It can be between two objects, or between an object and the background.
 
-You should typically use the `core` `hinge` function instead, since if you use `Scene:add_hinge`, there won't be a visible bolt the user can remove. On the other hand, `core`'s `hinge` adds same thing as the hinge tool. You can even make it invisible if you want.
+You should typically use the `core` `hinge` function instead, since if you use `Scene:add_hinge`, there won't be a visible hinge the user can remove. On the other hand, `core`'s `hinge` adds same thing as the hinge tool. You can even make it invisible if you want.
 
 #### Example
 
@@ -190,6 +190,22 @@ Scene:add_bolt({
     local_anchor_b = vec2(1, 0), -- since object B is background, this is world space
     reference_angle = 0.1, -- what difference in angle should there be between the two after bolt
     attachment = attachment, -- attachment to attach bolt to
+});
+```
+
+---
+
+### \:add_phaser()
+
+Adds a new phaser to the scene. It must be between two objects. It'll diable collision between the two until the phaser is destroyed.
+
+#### Example
+
+```lua
+Scene:add_phaser({
+    object_a = box,
+    object_b = box2,
+    attachment = attachment, -- attachment to attach phaser to
 });
 ```
 
@@ -385,6 +401,17 @@ local bolt = Scene:get_bolt(0);
 
 ---
 
+### \:get_phaser()
+
+Gets a phaser by its ID, or nil if there's none of that ID
+
+#### Example
+```lua
+local phaser = Scene:get_phaser(0);
+```
+
+---
+
 ### \:get_fixed_joint()
 
 Gets a fixed joint by its ID, or nil if there's none of that ID
@@ -527,6 +554,17 @@ Gets all the bolts in the scene
 #### Example
 ```lua
 local bolts = Scene:get_all_bolts();
+```
+
+---
+
+### \:get_all_phasers()
+
+Gets all the phasers in the scene
+
+#### Example
+```lua
+local phasers = Scene:get_all_phasers();
 ```
 
 ---
