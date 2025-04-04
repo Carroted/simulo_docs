@@ -35,6 +35,24 @@ self:destroy();
 
 ---
 
+### \:is_destroyed()
+
+Well? Is it?
+
+---
+
+### \:get_up_direction()
+
+It's a <Type name="vec2" />. Guess what it is
+
+---
+
+### \:get_right_direction()
+
+It's a <Type name="vec2" />. Guess what it is
+
+---
+
 ### \:get_linear_velocity()
 
 Returns the linear velocity of the object as a <Type name="vec2" />. Measured in meters per second.
@@ -232,6 +250,8 @@ self:set_angle(math.rad(45)); -- 45 degrees
 ### \:get_direct_connected()
 
 Gets all objects directly connected to this object by joints. For example, if you hinge together a bunch of boxes to make a rope, this only returns the previous and next box in the rope, not the entire rope. Insane
+
+Phasers are considered to not be a connection in this context, and so are ignored by this.
 
 #### Example
 
@@ -439,6 +459,18 @@ Sets whether the object is awake. Awake objects are actively simulated.
 
 ---
 
+### \:get_angle_locked()
+
+Gets whether the object is allowed to rotate from physics. You can still `:set_angle` on it even when this is the case.
+
+---
+
+### \:set_angle_locked()
+
+Sets whether the object is allowed to rotate from physics. You can still `:set_angle` on it even when this is the case.
+
+---
+
 ### \:get_density()
 
 Gets the density of the object as a <Type name="number" />.
@@ -484,6 +516,12 @@ Gets a list of all the hinges attached to the object.
 ### \:get_bolts()
 
 Gets a list of all the bolts attached to the object.
+
+---
+
+### \:get_phasers()
+
+Gets a list of all the phasers attached to the object.
 
 ---
 
