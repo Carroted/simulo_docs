@@ -311,3 +311,65 @@ Snaps the provided position to the player's grid, regardless of whether or not g
 local snapped = player:snap_pointer_pos(vec2(math.pi, 942.140513));
 ```
 
+---
+
+### \:set_cursor()
+
+Give it a string like umm these
+- "default"
+- "none"
+- "help"
+- "pointer"
+- "crosshair"
+- "move"
+- "grab"
+- "grabbing"
+
+---
+
+### \:get_selected_objects()
+
+returns the umm
+
+---
+
+### \:get_selected_attachments()
+
+gets umm
+
+---
+
+### \:set_selected_objects()
+
+Replaces the reals
+
+---
+
+### \:set_selected_attachments()
+
+Updates the fake
+
+---
+
+### \:clear_selection()
+
+gone
+
+---
+
+### \:add_client_component()
+
+Add a client component to the player? What?
+
+These are NOT normal components like what we put on objects or attachments. These are sent to the player and they run on their device like tool code. This can be used to show UI to players.
+```lua
+-- no add_component_def or similar first, you just immediately add something
+player:add_client_component({
+    id = "@handle/your_package/component_name_here",
+    name = "Component Name Here",
+
+});
+```
+
+No return value for nows, imagine
+

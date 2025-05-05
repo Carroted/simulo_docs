@@ -1,0 +1,196 @@
+# Ui
+
+you get this from Client:window in tool code and  umm did i call it "mods" or "client components"? its the same thing but yeah whatever i called it. when you call that you get this and you can add your stuffs
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:label()
+
+Add some text to the UI
+
+```lua
+ui:label("Wow! I love Simulo", "fr"); -- it combines the arguments because its so cool, even if second one were like, number
+```
+
+---
+
+### \:button()
+
+Add a button, you will usually do like:
+
+```lua
+if ui:button("Click this"):clicked() then
+    -- do something
+end;
+```
+
+but you could also do
+
+```lua
+local response = ui:button("Aaa");
+-- now you can check response:hovered() and response:clicked() etc idk
+```
+
+---
+
+### \:toggle()
+
+Tick tick tick
+
+```lua
+local response, new_checked = ui:toggle(current_value, "text");
+```
+
+---
+
+### \:text_edit_singleline()
+
+Its umm yeah
+
+```lua
+local response, new_text = ui:text_edit_singleline(current_text);
+```
+
+---
+
+### \:text_edit_multiline()
+
+Wowaawawao
+
+```lua
+local response, new_text = ui:text_edit_multiline(current_text);
+```
+
+---
+
+### \:separator()
+
+Line!!! If youre in a `ui:horizontal` itll become vertical line isnt that neat
+
+```lua
+ui:label("Hi so");
+ui:separator();
+ui:label("umm yeah");
+```
+
+---
+
+### \:radio_value()
+
+This one is prob harder to use im sorrys
+
+```lua
+local _, new_value = ui:radio_value(current_value, "option_a", "Option A");
+current_value = new_value;
+local _, new_value = ui:radio_value(current_value, "option_b", "Option B");
+current_value = new_value;
+local _, new_value = ui:radio_value(current_value, "option_c", "Option C");
+current_value = new_value;
+```
+
+the underscores here are to discard the Response. you can keep it if you want
+
+---
+
+### \:collapsing_header()
+
+```lua
+ui:collapsing_header("Hello", function(ui)
+    ui:label("Waow");
+end);
+```
+
+---
+
+### \:horizontal()
+
+Contents of it will be in a row
+
+```lua
+ui:horizontal(function(ui)
+    -- Add stuff in here
+end);
+```
+
+---
+
+### \:vertical()
+
+Contents of it will be in a column
+
+```lua
+ui:vertical(function(ui)
+    -- Add stuff in here
+end);
+```
+
+---
+
+### \:scroll_area()
+
+Scrolly
+
+Sadly it Does Not seem to work in our tests and we do not know why,
+
+It does all the correct egui code correctlya. something is odd truly indeed
+
+```lua
+ui:scroll_area({
+    -- everything here has defaults
+
+    horizontal = false,
+    vertical = true,
+
+    max_height = 50,
+    auto_shrink_height = false,
+
+    -- we can also set max_width, min_scrolled_height, min_scrolled_width, stick_to_bottom, stick_to_right, always_show_scroll, auto_shrink_width, auto_shrink_height
+}, function(ui)
+    for i=1,100 do
+        ui:label("Lorem ipsum dolor sit amet");
+    end;
+end);
+```
+
+---
+
+### \:heading()
+
+Larger text for your reals
+
+```lua
+ui:heading("Wow!", 10); -- it combines the arguments because its so cool
+```
+
+---
+
+### \:add_space()
+
+Spacing
+
+```lua
+ui:add_space(10);
+```
+
+---
+
+### \:dropdown()
+
+```lua
+Client:window("Dropdowns", {}, function(ui)
+    local response, new_value = ui:dropdown("consistent_dropdown_id", current_value, {
+        "Option",
+        "Another option",
+        "Wow the options just Continue to appear",
+        "Truly when will it end",
+    })
+    current_value = new_value;
+end); -- holy
+```
+

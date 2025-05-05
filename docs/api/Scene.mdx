@@ -91,9 +91,13 @@ Scene:add_attachment({
     },
     use_world_angle = false, -- this isn't finished and is somewhat broken (you can still try it) but it makes local angle use world instead of relative to parent
 
-    -- everything has defaults fr
+    -- everything has defaults fr (i promise,)
 
-    -- other than this. to know how use that, look at `add_component_def` docs, on this same page
+    -- optionally we can give it a "base component".
+    -- thats a special type of component
+    -- where it is part of attachment itself and cant be removed
+    -- and in UI it shows up Above components list.
+    -- look at `add_component_def` docs, on this same page
     component = {
         name = "Attachment type name, like Hinge, just, the name of your thing",
         version = "0.1.0",
@@ -109,9 +113,6 @@ Scene:add_attachment({
             },
         },
     },
-    -- the attachment component is a special type of component
-    -- where it is part of attachment itself and cant be removed
-    -- and in UI it shows up Above components list
 });
 ```
 
@@ -258,6 +259,40 @@ Scene:add_box({
     size = vec2(1, 1), -- meters
     body_type = BodyType.Static, -- doesnt move
     color = Color:rgb(1, 0.1, 0.1), -- red
+});
+```
+
+---
+
+### \:load_object()
+
+Loads a saved object at a specified origin (position). doesnt return anything yet
+
+#### Example
+
+```lua
+local obj = require('core/objects/simulon');
+
+Scene:load_object({
+    asset = obj,
+    position = vec2(0, 0),
+});
+```
+
+---
+
+### \:load_scene()
+
+Loads saved scene. You may wonder why it takes table instead of just new scene. its so we can later have `additive` so you can have it just add the scene without replace existing. BUT thats not in yet
+
+#### Example
+
+```lua
+local obj = require('core/objects/simulon');
+
+Scene:load_scene({
+    asset = obj,
+    position = vec2(0, 0),
 });
 ```
 
@@ -764,6 +799,28 @@ Sets the background color
 #### Example
 ```lua
 Scene:set_background_color(0xff0000);
+```
+
+---
+
+### \:get_background_color_secondary()
+
+Gets the background color at bottom of gradient. `nil` when there isn't a gradient indeed
+
+#### Example
+```lua
+local color = Scene:get_background_color_secondary();
+```
+
+---
+
+### \:set_background_color_secondary()
+
+Sets the background color at bottom of gradient. `nil` for no gradient
+
+#### Example
+```lua
+Scene:set_background_color_secondary(nil);
 ```
 
 ---

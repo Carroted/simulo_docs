@@ -357,6 +357,66 @@ local z_index = self:get_z_index();
 
 ---
 
+### \:set_z_index()
+
+Tries to set the Z index of the object as a <Type name="number" />. Returns false if it failed, true if it won. You should usually use the below functions instead.
+
+#### Example
+
+```lua
+self:set_z_index(5);
+```
+
+---
+
+### \:move_to_back()
+
+Move to back, visually. Updates Z indices
+
+#### Example
+
+```lua
+self:move_to_back();
+```
+
+---
+
+### \:move_to_front()
+
+Move to front, visually. Updates Z indices
+
+#### Example
+
+```lua
+self:move_to_front();
+```
+
+---
+
+### \:move_backward()
+
+Move backward, visually. Updates Z indices
+
+#### Example
+
+```lua
+self:move_backward();
+```
+
+---
+
+### \:move_forward()
+
+Move forward, visually. Updates Z indices
+
+#### Example
+
+```lua
+self:move_forward();
+```
+
+---
+
 ### \:get_restitution()
 
 Gets the restitution of the object as a <Type name="number" />.

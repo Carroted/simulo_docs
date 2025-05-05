@@ -19,15 +19,18 @@ local hash = Scene:add_component_def({
     version = "0.2.0",
 
     -- Lua/Luau code to make box "jump" when we press W key
-    code = [[
-        local host = Scene:get_player(0);
+    script = {
+        lang = "lua",
+        code = [[
+            local host = Scene:get_player(0);
 
-        function on_update()
-            if host:key_just_pressed("W") then
-                self:apply_linear_impulse_to_center(vec2(0, 1));
+            function on_update()
+                if host:key_just_pressed("W") then
+                    self:apply_linear_impulse_to_center(vec2(0, 1));
+                end;
             end;
-        end;
-    ]],
+        ]],
+    },
 });
 
 box:add_component({ hash = hash }); -- We can reuse the hash on other objects

@@ -1,0 +1,57 @@
+# Client
+
+This is the the. This gamery can be used to add custom UI, or access persistent settings, etc. Wow!
+
+## Functions
+
+:::note
+Make sure to use `:function()` and not `.function()`, or you'll get an error
+:::
+
+---
+
+### \:window()
+
+Add a window. Wow! Call this every `on_update` to draw your windowy
+
+```lua
+Client:window("Wow!", {
+    -- settings go here um we have
+    -- booleans (true/false): resizable, collapsible, title_bar, vscroll, hscroll
+    -- and default_width and default_height
+
+    -- and `anchor` and `inner_margin`
+
+    -- thats actually it for now lmk what else you need,
+}, function(ui)
+    ui:label("Omg my window");
+end);
+```
+
+---
+
+### \:main_bar_item()
+
+Add a thing to the "main bar" on bottom left, where you have tools icon, objects one, etc. Call it every `on_update` too
+
+```lua
+local open, anchor = Client:main_bar_item({
+    -- we cant give it an icon or anything yet itll just be a question mark
+    -- but dammit i need release this today.
+
+    -- so i guess, nothing here, at all
+});
+
+if open then
+    Client:window("My Menu", {
+        anchor = anchor, -- use anchor it gave us
+        title_bar = false,
+        resizable = false,
+        collapsible = false,
+    }, function(ui)
+        ui:heading("My Menu");
+        ui:label("Fr");
+    end);
+end;
+```
+

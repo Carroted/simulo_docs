@@ -1,0 +1,68 @@
+# Mods
+
+We have modding in Lua
+
+Just open Simulo Folder (File -> Open Simulo Folder) and into `mods` folder
+
+Now make a folder of your mod name
+
+Then in there make `src` folder and in there `main.lua`
+
+And wow now you can put umm put this in it right now
+
+```lua
+local counter = 0;
+
+function on_update()
+    -- Add a window
+    Client:window("Counter", {
+        -- settings go here
+        collapsible = false,
+    }, function(ui)
+        ui:label("Counter value:", counter);
+
+        ui:horizontal(function(ui)
+            if ui:button("Increment"):clicked() then
+                counter += 1;
+            end;
+            if ui:button("Decrement"):clicked() then
+                counter -= 1;
+            end;
+        end);
+    end);
+end;
+```
+
+now save. then go File -> Packages -> Refresh
+
+bam new window appears
+
+## How add thing to bar at bottom,
+
+```lua
+function on_update()
+    local open, anchor = Client:main_bar_item({
+        -- we cant give it an icon or anything yet itll just be a question mark
+        -- but dammit i need release this today.
+
+        -- so i guess, nothing here, at all
+    });
+
+    if open then
+        Client:window("My Menu", {
+            anchor = anchor, -- use anchor it gave us
+            title_bar = false,
+            resizable = false,
+            collapsible = false,
+        }, function(ui)
+            ui:heading("My Menu");
+            ui:separator();
+            ui:label("Fr\nThis is my real menu");
+        end);
+    end;
+end;
+```
+
+now, i know what you must be thinking now. how do i add cool stuff in my UI? well STOP IT RAHH we have another page for that. UI page
+
+but anyway mods have DIRECT access to `Scene` BUT its `nil` on non-host in multiplayer so be so very carefuls fr. you can thus check if gamer is the host and you can hide your host-only windows
