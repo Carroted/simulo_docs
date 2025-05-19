@@ -50,7 +50,7 @@ Scene:add_attachment({
         {
             -- We only need the texture, every other field in `images` is optional and has the defaults you'd expect.
             texture = require('core/assets/textures/point_light.png'),
-            
+
             color = 0xffa0a0,
             offset = vec2(0.5, 0.5),
             angle = 0.1,
@@ -85,7 +85,7 @@ Scene:add_attachment({
             angle = 0.4,
             font_size = 1,
             font_resolution = 20,
-            
+
             -- can't set font yet! sorry
         },
     },
@@ -240,6 +240,8 @@ Adds an audio player to the scene. Wow!
 Scene:add_audio({
     position = vec2(0, 0),
     asset = "path/to/audio.ogg",
+    -- you can also set this:
+    -- looping = true,
     -- we can also set pitch and volume but they default to 1
     -- we can also omit position since it defaults to 0,0
 });
@@ -759,24 +761,46 @@ Scene:set_ambient_light_intensity(0.5);
 
 ---
 
-### \:set_bloom()
+### \:set_bloom_intensity()
 
-Sets the bloom
+Sets the bloom intensity. Defaults to `0.15`.
 
 #### Example
 ```lua
-Scene:set_bloom(true);
+Scene:set_bloom_intensity(0); -- Disable bloom
 ```
 
 ---
 
-### \:get_bloom()
+### \:get_bloom_intensity()
 
-Gets the bloom
+Gets the bloom intensity.
 
 #### Example
 ```lua
-local bloom = Scene:get_bloom();
+local intensity = Scene:get_bloom_intensity();
+```
+
+---
+
+### \:set_bloom_threshold()
+
+Sets the bloom threshold. Defaults to `0.8`.
+
+#### Example
+```lua
+Scene:set_bloom_threshold(0); -- Everything will bloom. We will prosper
+```
+
+---
+
+### \:get_bloom_threshold()
+
+Gets the bloom threshold.
+
+#### Example
+```lua
+local intensity = Scene:get_bloom_threshold();
 ```
 
 ---

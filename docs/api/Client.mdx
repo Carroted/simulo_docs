@@ -35,23 +35,23 @@ end);
 Add a thing to the "main bar" on bottom left, where you have tools icon, objects one, etc. Call it every `on_update` too
 
 ```lua
-local open, anchor = Client:main_bar_item({
-    -- we cant give it an icon or anything yet itll just be a question mark
-    -- but dammit i need release this today.
+function on_update()
+    local open, anchor = Client:main_bar_item({
+        icon = "@your_handle/package_name/.../some_icon.png", -- not with `require`
+        name = "Wow amazing", -- the tooltip
+    });
 
-    -- so i guess, nothing here, at all
-});
-
-if open then
-    Client:window("My Menu", {
-        anchor = anchor, -- use anchor it gave us
-        title_bar = false,
-        resizable = false,
-        collapsible = false,
-    }, function(ui)
-        ui:heading("My Menu");
-        ui:label("Fr");
-    end);
+    if open then
+        Client:window("My Menu", {
+            anchor = anchor, -- use anchor it gave us
+            title_bar = false,
+            resizable = false,
+            collapsible = false,
+        }, function(ui)
+            ui:heading("My Menu");
+            ui:label("Fr");
+        end);
+    end;
 end;
 ```
 
